@@ -32,11 +32,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   })
 
   const section = items[0]
-
-  return {
-    props: { section },
-    revalidate: 3,
-  }
+  return section
+    ? { props: { section }, revalidate: 3 }
+    : { redirect: { destination: '/', permanent: false } }
 }
 
 interface Props {
