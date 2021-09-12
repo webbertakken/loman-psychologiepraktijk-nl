@@ -31,10 +31,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     'fields.slug': slug,
   })
 
+  const section = items[0]
+
   return {
-    props: {
-      section: items[0],
-    },
+    props: { section },
+    revalidate: 3,
   }
 }
 

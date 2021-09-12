@@ -6,12 +6,13 @@ import { ContentfulResponseProps, SectionProps } from '../../types/section'
 
 export const getStaticProps: GetStaticProps = async (_context) => {
   const client = getContentfulClient()
-  const response = await client.getEntries({ content_type: 'section' })
+  const { items: sections } = await client.getEntries({
+    content_type: 'section',
+  })
 
   return {
-    props: {
-      sections: response.items,
-    },
+    props: { sections },
+    revalidate: 3,
   }
 }
 
