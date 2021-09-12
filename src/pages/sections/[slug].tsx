@@ -19,7 +19,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   }
 }
 
@@ -46,7 +46,7 @@ interface Props {
 export default function Sections({ section }: Props): JSX.Element {
   return (
     <Layout>
-      <Section fields={section.fields} />
+      {section ? <Section fields={section.fields} /> : <div>Loading...</div>}
     </Layout>
   )
 }
