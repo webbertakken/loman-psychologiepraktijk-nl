@@ -18,8 +18,12 @@
   },
   "lint-staged": {
     "*.@(ts|tsx)": [
-      "yarn lint",
-      "yarn format"
+      "prettier --write",
+      "eslint --fix",
+      "yarn test --findRelatedTests"
+    ],
+    "*.@(json,md,yaml,yml)": [
+      "prettier --write"
     ]
   },
   "dependencies": {
