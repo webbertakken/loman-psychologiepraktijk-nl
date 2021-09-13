@@ -4,6 +4,7 @@ import { getContentfulClient } from '../../core/contentful'
 import { Entry } from 'contentful'
 import Section from '../../components/Section'
 import { SectionProps } from '../../types/section'
+import LoadingPage from '../../components/loading/LoadingPage'
 
 const client = getContentfulClient()
 
@@ -44,7 +45,7 @@ interface Props {
 export default function Sections({ section }: Props): JSX.Element {
   return (
     <Layout>
-      {section ? <Section fields={section.fields} /> : <div>Loading...</div>}
+      {section ? <Section fields={section.fields} /> : <LoadingPage />}
     </Layout>
   )
 }
