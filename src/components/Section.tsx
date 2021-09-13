@@ -1,9 +1,12 @@
 // import Image from 'next/image';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import { SectionProps } from '../types/section'
+import { SectionEntry } from '../types/section'
 
-const Section = ({ fields }: SectionProps): JSX.Element => {
-  const { title, subtitle, content } = fields
+interface Props {
+  section: SectionEntry
+}
+const Section = ({ section }: Props): JSX.Element => {
+  const { title, subtitle, content } = section.fields
 
   return (
     <div>

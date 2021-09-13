@@ -1,11 +1,12 @@
 import Link from 'next/link'
+import { SectionEntry } from '../types/section'
 
 interface Props {
-  fields: Record<string, unknown>
+  section: SectionEntry
 }
 
-const SectionPreview = ({ fields }: Props): JSX.Element => {
-  const { title, slug } = fields
+const SectionPreview = ({ section }: Props): JSX.Element => {
+  const { title, slug } = section.fields
 
   return (
     <div>

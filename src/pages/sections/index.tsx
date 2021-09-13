@@ -1,12 +1,12 @@
 import { GetStaticProps } from 'next'
 import SectionPreview from '../../components/SectionPreview'
-import Layout from '../../components/Layout'
+import Layout from '../../components/layout/Layout'
 import { getContentfulClient } from '../../core/contentful'
-import { ContentfulResponseProps, SectionProps } from '../../types/section'
+import { SectionEntry, SectionProps } from '../../types/section'
 
 export const getStaticProps: GetStaticProps = async (_context) => {
   const client = getContentfulClient()
-  const { items: sections } = await client.getEntries({
+  const { items: sections } = await client.getEntries<SectionProps>({
     content_type: 'section',
   })
 
@@ -17,7 +17,7 @@ export const getStaticProps: GetStaticProps = async (_context) => {
 }
 
 interface Props {
-  sections: SectionProps[] | ContentfulResponseProps[]
+  sections: SectionEntry[]
 }
 
 export default function Sections({ sections }: Props): JSX.Element {
@@ -25,7 +25,7 @@ export default function Sections({ sections }: Props): JSX.Element {
     <Layout>
       <div className="list">
         {sections.map((section) => (
-          <SectionPreview key={section.sys.id} fields={section.fields} />
+          <SectionPreview key={section.sys.id} section={section} />
         ))}
       </div>
     </Layout>

@@ -1,16 +1,11 @@
 import { Document } from '@contentful/rich-text-types'
-
-interface ContentfulResponseProps {
-  sys: {
-    id: string
-  }
-}
+import { Entry } from 'contentful'
 
 interface SectionProps {
-  fields: {
-    title: string
-    subtitle: string
-    slug: string
-    content: Document
-  }
+  title: string
+  subtitle: string
+  slug: string
+  content: Document
 }
+
+type SectionEntry = Entry<SectionProps>

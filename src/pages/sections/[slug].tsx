@@ -1,9 +1,9 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
-import Layout from '../../components/Layout'
+import Layout from '../../components/layout/Layout'
 import { getContentfulClient } from '../../core/contentful'
 import { Entry } from 'contentful'
 import Section from '../../components/Section'
-import { SectionProps } from '../../types/section'
+import { SectionEntry } from '../../types/section'
 import LoadingPage from '../../components/loading/LoadingPage'
 
 const client = getContentfulClient()
@@ -39,13 +39,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 interface Props {
-  section: SectionProps
+  section: SectionEntry
 }
 
 export default function Sections({ section }: Props): JSX.Element {
   return (
-    <Layout>
-      {section ? <Section fields={section.fields} /> : <LoadingPage />}
-    </Layout>
+    <Layout>{section ? <Section section={section} /> : <LoadingPage />}</Layout>
   )
 }
