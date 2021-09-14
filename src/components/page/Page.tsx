@@ -1,6 +1,7 @@
 import Layout from './Layout'
 import LoadingPage from '../loading/LoadingPage'
 import { PageEntry } from '../../types/page'
+import Section from '../section/Section'
 
 interface Props {
   page: PageEntry
@@ -8,12 +9,18 @@ interface Props {
 }
 
 const Page = ({ page, menu }: Props): JSX.Element => {
+  if (!page) return <LoadingPage />
+
+  const { sections } = page.fields
+
   return (
     <Layout menu={menu}>
       {page ? (
-        <pre>
-          <code>{JSON.stringify(page.fields, null, 2)}</code>
-        </pre>
+        <>
+          {sections?.map((section) => {
+            return <Section key={section.sys.id} section={section} />
+          })}
+        </>
       ) : (
         <LoadingPage />
       )}

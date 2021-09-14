@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { SectionEntry } from '../types/section'
+import { SectionEntry } from '../../types/section'
 
 interface Props {
   section: SectionEntry

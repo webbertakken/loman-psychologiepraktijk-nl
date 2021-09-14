@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
-import Page from '../components/layout/Page'
+import Page from '../components/page/Page'
 import { getContentfulClient } from '../core/contentful'
 import { PageEntry, PageProps } from '../types/page'
 

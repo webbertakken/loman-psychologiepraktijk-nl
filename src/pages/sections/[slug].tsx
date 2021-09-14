@@ -1,8 +1,8 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
-import Layout from '../../components/layout/Layout'
+import Layout from '../../components/page/Layout'
 import { getContentfulClient } from '../../core/contentful'
 import { Entry } from 'contentful'
-import Section from '../../components/Section'
+import Section from '../../components/section/Section'
 import { SectionEntry } from '../../types/section'
 import LoadingPage from '../../components/loading/LoadingPage'
 

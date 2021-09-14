@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next'
-import SectionPreview from '../../components/SectionPreview'
-import Layout from '../../components/layout/Layout'
+import SectionPreview from '../../components/section/SectionPreview'
+import Layout from '../../components/page/Layout'
 import { getContentfulClient } from '../../core/contentful'
 import { SectionEntry, SectionProps } from '../../types/section'
 
