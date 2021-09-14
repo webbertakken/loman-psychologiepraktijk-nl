@@ -2,11 +2,11 @@ import { GetStaticProps } from 'next'
 import SectionPreview from '../../components/section/SectionPreview'
 import Layout from '../../components/page/Layout'
 import { getContentfulClient } from '../../core/contentful'
-import { SectionEntry, SectionProps } from '../../types/section'
+import { BasicSectionEntry, BasicSectionProps } from '../../types/section'
 
 export const getStaticProps: GetStaticProps = async (_context) => {
   const client = getContentfulClient()
-  const { items: sections } = await client.getEntries<SectionProps>({
+  const { items: sections } = await client.getEntries<BasicSectionProps>({
     content_type: 'section',
   })
 
@@ -17,7 +17,7 @@ export const getStaticProps: GetStaticProps = async (_context) => {
 }
 
 interface Props {
-  sections: SectionEntry[]
+  sections: BasicSectionEntry[]
 }
 
 export default function Sections({ sections }: Props): JSX.Element {

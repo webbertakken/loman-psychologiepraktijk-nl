@@ -2,14 +2,14 @@ import { Document } from '@contentful/rich-text-types'
 import { Entry } from 'contentful'
 import { PageEntry } from './page'
 
-interface SectionProps {
+interface BasicSectionProps {
   title: string
   subtitle: string
   slug: string
   content: Document
 }
 
-type SectionEntry = Entry<SectionProps>
+type BasicSectionEntry = Entry<BasicSectionProps>
 
 interface ProfileSectionProps {
   title: string

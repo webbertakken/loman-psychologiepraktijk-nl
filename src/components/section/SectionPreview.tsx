@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import { SectionEntry } from '../../types/section'
+import { BasicSectionEntry } from '../../types/section'
 
 interface Props {
-  section: SectionEntry
+  section: BasicSectionEntry
 }
 
 const SectionPreview = ({ section }: Props): JSX.Element => {

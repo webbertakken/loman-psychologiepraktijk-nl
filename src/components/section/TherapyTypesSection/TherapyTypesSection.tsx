@@ -9,7 +9,7 @@ const TherapyTypesSection = ({ section }: Props): JSX.Element => {
   const { therapyTypeCards } = section.fields
 
   return (
-    <section className="w-full bg-white">
+    <section className="w-full bg-white lg:pt-40">
       {therapyTypeCards?.map((card) => (
         <TherapyTypeCard key={card.sys.id} card={card} />
       ))}

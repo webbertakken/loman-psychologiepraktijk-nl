@@ -17,8 +17,10 @@ const Page = ({ page, menu }: Props): JSX.Element => {
     <Layout menu={menu}>
       {page ? (
         <>
-          {sections?.map((section) => {
-            return <Section key={section.sys.id} section={section} />
+          {sections?.map((section, index) => {
+            return (
+              <Section key={section.sys.id} section={section} index={index} />
+            )
           })}
         </>
       ) : (

@@ -3,7 +3,7 @@ import Layout from '../../components/page/Layout'
 import { getContentfulClient } from '../../core/contentful'
 import { Entry } from 'contentful'
 import Section from '../../components/section/Section'
-import { SectionEntry } from '../../types/section'
+import { BasicSectionEntry } from '../../types/section'
 import LoadingPage from '../../components/loading/LoadingPage'
 
 const client = getContentfulClient()
@@ -39,7 +39,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 interface Props {
-  section: SectionEntry
+  section: BasicSectionEntry
 }
 
 export default function Sections({ section }: Props): JSX.Element {
