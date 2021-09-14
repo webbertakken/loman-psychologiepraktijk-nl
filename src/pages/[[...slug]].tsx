@@ -1,6 +1,6 @@
-import { GetStaticProps, GetStaticPaths } from 'next'
-import { getContentfulClient } from '../core/contentful'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import Page from '../components/layout/Page'
+import { getContentfulClient } from '../core/contentful'
 import { PageEntry, PageProps } from '../types/page'
 
 const client = getContentfulClient()
@@ -13,10 +13,13 @@ const getPages = async (): Promise<PageEntry[]> => {
   return pages
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const pages = await getPages()
+const getActivePath = (slug: null | string | string[]) => {
+  if (slug === null) return '/'
+  return typeof slug === 'string' ? `/${slug}` : `/${slug.join('/')}`
+}
 
-  const paths = pages.map((page) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = (await getPages()).map((page) => {
     const { slug, isHomePage } = page.fields
     return { params: { slug: isHomePage ? null : [slug] } }
   })
@@ -29,13 +32,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params.slug?.[0] || null
-  const pages = await getPages()
 
-  let currentPath = ''
-  if (slug) {
-    currentPath =
-      typeof params.slug === 'string' ? params.slug : params.slug.join('/')
-  }
+  const pages = await getPages()
+  const activePath = getActivePath(slug)
 
   const page = slug
     ? pages.find((page) => page.fields.slug === slug)
@@ -47,25 +46,22 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     .filter(({ fields }) => !fields.parentPage)
     .map((page) => {
       const { slug: rootPageSlug, menuItemTitle: title } = page.fields
-      const path = page.fields.isHomePage ? '' : rootPageSlug
+      const path = page.fields.isHomePage ? '/' : `/${rootPageSlug}`
+      const isActive = path === activePath
 
+      // Pages can have `parentPage`, which is a hydrated reference to another page.
       const subPages = pages
         .filter(({ fields }) => fields.parentPage?.sys.id === page.sys.id)
         .filter(({ fields }) => fields.shouldBeShownInTheMenu)
         .map((subPage) => {
           const { menuItemTitle: title, slug: subPageSlug } = subPage.fields
-          const subPagePath = `${slug}/${subPageSlug}`
-          const isActive = subPagePath === currentPath
+          const subPath = `/${rootPageSlug}/${subPageSlug}`
+          const isActive = subPath === activePath
 
-          return { title, path: `/${subPagePath}`, isActive }
+          return { title, path: subPath, isActive }
         })
 
-      return {
-        title,
-        path: `/${path}`,
-        isActive: path === currentPath,
-        subPages,
-      }
+      return { title, path, isActive, subPages }
     })
 
   return page
