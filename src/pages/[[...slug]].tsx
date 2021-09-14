@@ -8,6 +8,7 @@ const client = getContentfulClient()
 const getPages = async (): Promise<PageEntry[]> => {
   const { items: pages } = await client.getEntries<PageProps>({
     content_type: 'page',
+    include: 3,
   })
 
   return pages

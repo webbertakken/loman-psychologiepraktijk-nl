@@ -1,5 +1,6 @@
 import { Document } from '@contentful/rich-text-types'
 import { Entry } from 'contentful'
+import { PageEntry } from './page'
 
 interface SectionProps {
   title: string
@@ -10,7 +11,7 @@ interface SectionProps {
 
 type SectionEntry = Entry<SectionProps>
 
-interface ProfileCardProps {
+interface ProfileSectionProps {
   title: string
   slug: string
   photo: Entry<any>
@@ -26,4 +27,31 @@ interface ProfileCardProps {
   linkedInHandle: string
 }
 
-type ProfileCardEntry = Entry<ProfileCardProps>
+type ProfileSectionEntry = Entry<ProfileSectionProps>
+
+interface TherapyTypeCardProps {
+  image: Entry<any>
+  title: string
+  subtitle: string
+  content: Document
+  pageToLinkTo?: PageEntry
+}
+
+type TherapyTypeCardEntry = Entry<TherapyTypeCardProps>
+
+interface TypesOfTherapyProps {
+  title: string
+  therapyTypeCards: TherapyTypeCardEntry[]
+  vocation: string
+  location: string
+  getInTouchText: string
+  getInTouchLink: string
+  shortDescription: Document
+  instagramHandle: string
+  facebookHandle: string
+  twitterHandle: string
+  youtubeHandle: string
+  linkedInHandle: string
+}
+
+type TypesOfTherapyEntry = Entry<TypesOfTherapyProps>

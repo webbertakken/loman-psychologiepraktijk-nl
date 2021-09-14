@@ -7,10 +7,10 @@ import Location from './fields/Location'
 import Bio from './fields/Bio'
 import GetInTouchButton from './fields/GetInTouchButton'
 import LinkedInIcon from './social/LinkedInIcon'
-import { ProfileCardEntry } from '../../../types/section'
+import { ProfileSectionEntry } from '../../../types/section'
 
 interface Props {
-  section: ProfileCardEntry
+  section: ProfileSectionEntry
 }
 
 const ProfileCardSection = ({ section }: Props): JSX.Element => {
