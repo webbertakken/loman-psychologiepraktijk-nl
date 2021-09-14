@@ -7,7 +7,6 @@ import Location from './fields/Location'
 import Bio from './fields/Bio'
 import GetInTouchButton from './fields/GetInTouchButton'
 import LinkedInIcon from './social/LinkedInIcon'
-import Image from 'next/image'
 import { ProfileCardEntry } from '../../../types/section'
 
 interface Props {
@@ -73,11 +72,9 @@ const ProfileCardSection = ({ section }: Props): JSX.Element => {
         </div>
 
         <div className="w-full lg:w-2/5">
-          <Image
+          <img
             className="rounded-none lg:rounded-lg shadow-2xl hidden lg:block"
-            src={`https:${photo.fields.file.url}`}
-            width={photo.fields.file.details.image.width}
-            height={photo.fields.file.details.image.height}
+            src={photoUrl}
           />
         </div>
       </div>
