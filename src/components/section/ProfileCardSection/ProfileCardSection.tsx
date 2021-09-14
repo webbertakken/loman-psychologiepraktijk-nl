@@ -8,24 +8,26 @@ import Bio from './fields/Bio'
 import GetInTouchButton from './fields/GetInTouchButton'
 import LinkedInIcon from './social/LinkedInIcon'
 import Image from 'next/image'
+import { ProfileCardEntry } from '../../../types/section'
 
 interface Props {
-  section: Record<string, any>
+  section: ProfileCardEntry
 }
 
 const ProfileCardSection = ({ section }: Props): JSX.Element => {
   const {
-    facebookUrl,
-    getInTouchLink,
-    instagramUrl,
-    linkedInUrl,
-    location,
-    photo,
-    shortDescription,
     title,
-    twitterUrl,
+    photo,
     vocation,
-    youtubeUrl,
+    location,
+    shortDescription,
+    getInTouchText,
+    getInTouchLink,
+    facebookHandle,
+    instagramHandle,
+    linkedInHandle,
+    twitterHandle,
+    youtubeHandle,
   } = section.fields
 
   const photoUrl = `https:${photo.fields.file.url}`
@@ -55,15 +57,17 @@ const ProfileCardSection = ({ section }: Props): JSX.Element => {
             <Location location={location} />
             <Bio shortDescription={shortDescription} />
 
-            {getInTouchLink && <GetInTouchButton link={getInTouchLink} />}
+            {getInTouchLink && (
+              <GetInTouchButton text={getInTouchText} link={getInTouchLink} />
+            )}
 
             <div className="mt-6 pb-16 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center justify-between">
               {/* Use https://simpleicons.org/ to find the svg for your preferred product */}
-              {twitterUrl && <TwitterIcon handle={twitterUrl} />}
-              {facebookUrl && <FacebookIcon handle={facebookUrl} />}
-              {instagramUrl && <InstagramIcon handle={instagramUrl} />}
-              {youtubeUrl && <YoutubeIcon handle={youtubeUrl} />}
-              {linkedInUrl && <LinkedInIcon handle={linkedInUrl} />}
+              {twitterHandle && <TwitterIcon handle={twitterHandle} />}
+              {facebookHandle && <FacebookIcon handle={facebookHandle} />}
+              {instagramHandle && <InstagramIcon handle={instagramHandle} />}
+              {youtubeHandle && <YoutubeIcon handle={youtubeHandle} />}
+              {linkedInHandle && <LinkedInIcon handle={linkedInHandle} />}
             </div>
           </div>
         </div>

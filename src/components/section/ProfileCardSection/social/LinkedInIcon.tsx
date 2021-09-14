@@ -8,7 +8,12 @@ const LinkedInIcon = ({ handle: dirtyHandle }: Props): JSX.Element => {
   const handle = dirtyHandle.replace(/^(@)/, '')
   return (
     <Tooltip title={`@${handle}`}>
-      <a className="link" href={`https://www.linkedin.com/in/${handle}`}>
+      <a
+        className="link"
+        target="_blank"
+        rel="noreferrer"
+        href={`https://www.linkedin.com/in/${handle}`}
+      >
         <svg
           className="h-6 fill-current text-gray-600 hover:text-green-700"
           role="img"
