@@ -5,7 +5,7 @@ import BasicSection from './BasicSection/BasicSection'
 
 interface Props {
   section: Entry<any>
-  index: number
+  index?: number
 }
 const Section = ({ section, index }: Props): JSX.Element => {
   const sectionType = section.sys.contentType.sys.id
