@@ -7,7 +7,7 @@ interface Props {
 }
 
 export const TherapyTypeCard = ({ card }: Props): JSX.Element => {
-  const { title, subtitle, content, image, pageToLinkTo } = card.fields
+  const { title, slug, subtitle, content, image, pageToLinkTo } = card.fields
 
   const link = pageToLinkTo ? `/${pageToLinkTo.fields.slug}` : undefined
 
@@ -16,7 +16,7 @@ export const TherapyTypeCard = ({ card }: Props): JSX.Element => {
     <div className="max-w-3xl pb-8 mx-auto font-serif md:py-12 lg:py-16">
       <div className="pb-8 border-b md:px-8 md:pb-12 lg:pb-16 border-gray-150 dark:border-gray-750 sm:text-center">
         <FadeIntoView>
-          <a href={link} className="block mb-10">
+          <a id={slug} href={link} className="block mb-10">
             <img
               src={imageSrc}
               alt={title}

@@ -32,6 +32,7 @@ type ProfileSectionEntry = Entry<ProfileSectionProps>
 interface TherapyTypeCardProps {
   image: Entry<any>
   title: string
+  slug: string
   subtitle: string
   content: Document
   pageToLinkTo?: PageEntry
@@ -41,6 +42,7 @@ type TherapyTypeCardEntry = Entry<TherapyTypeCardProps>
 
 interface TypesOfTherapyProps {
   title: string
+  slug: string
   therapyTypeCards: TherapyTypeCardEntry[]
   vocation: string
   location: string

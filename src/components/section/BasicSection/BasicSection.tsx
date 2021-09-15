@@ -8,7 +8,7 @@ interface Props {
 }
 
 const BasicSection = ({ section, index }: Props): JSX.Element => {
-  const { title, subtitle, content } = section.fields
+  const { title, slug, subtitle, content } = section.fields
 
   const backgroundClass = index % 2 === 0 ? 'bg-[#bfc6d6]' : 'bg-white'
 
@@ -18,7 +18,10 @@ const BasicSection = ({ section, index }: Props): JSX.Element => {
     >
       <div className="flex flex-col max-w-4xl mx-auto">
         <FadeIntoView>
-          <h3 className="text-4xl font-extrabold leading-none sm:text-5xl md:text-6xl lg:leading-7 mb-12">
+          <h3
+            id={slug}
+            className="text-4xl font-extrabold leading-none sm:text-5xl md:text-6xl lg:leading-7 mb-12"
+          >
             {title}
           </h3>
         </FadeIntoView>

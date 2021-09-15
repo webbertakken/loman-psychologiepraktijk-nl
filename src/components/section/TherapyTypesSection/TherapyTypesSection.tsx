@@ -6,10 +6,10 @@ interface Props {
 }
 
 const TherapyTypesSection = ({ section }: Props): JSX.Element => {
-  const { therapyTypeCards } = section.fields
+  const { slug, therapyTypeCards } = section.fields
 
   return (
-    <section className="w-full bg-white lg:pt-40">
+    <section id={slug} className="w-full bg-white lg:pt-40">
       {therapyTypeCards?.map((card) => (
         <TherapyTypeCard key={card.sys.id} card={card} />
       ))}
