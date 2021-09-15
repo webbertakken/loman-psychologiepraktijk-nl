@@ -35,6 +35,7 @@ const ProfileCardSection = ({ section }: Props): JSX.Element => {
 
   return (
     <div
+      id={slug}
       className="w-full h-auto lg:h-screen py-2 lg:py-0 flex items-center justify-center"
       style={{
         background: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1446057468532-87b7525217d6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3902&q=80')`,
@@ -42,10 +43,7 @@ const ProfileCardSection = ({ section }: Props): JSX.Element => {
       }}
     >
       <div className="max-w-4xl flex items-center h-auto flex-wrap mx-auto my-12 lg:my-0">
-        <div
-          id={slug}
-          className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0"
-        >
+        <div className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0">
           <div className="p-4 lg:p-12 text-center lg:text-left">
             <div
               className="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
