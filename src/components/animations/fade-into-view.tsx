@@ -10,7 +10,7 @@ interface FadeIntoViewProps {
 }
 
 const FadeIntoView = ({ children, className, delay }: FadeIntoViewProps) => (
-  <VisibilitySensor>
+  <VisibilitySensor partialVisibility minTopValue={100}>
     {({ isVisible }) => (
       <Spring
         from={{ opacity: 0 }}
