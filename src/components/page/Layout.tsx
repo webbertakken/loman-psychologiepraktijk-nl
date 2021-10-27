@@ -1,5 +1,7 @@
 // import MenuLinks from './menu/MenuLinks'
 
+import Menu from './menu/Menu'
+
 interface Props {
   children: JSX.Element
   menu?: Record<string, any>[]
@@ -8,6 +10,7 @@ interface Props {
 const Layout = ({ children }: Props): JSX.Element => {
   return (
     <div>
+      <Menu />
       {/*<header>*/}
       {/*  <MenuLinks menu={menu} />*/}
       {/*</header>*/}
