@@ -19,8 +19,8 @@ const MenuLinks = ({ menu }: Props): JSX.Element => {
               <span className="absolute bottom-0 left-0 inline-block w-full h-0.5 overflow-hidden">
                 <span
                   className={cx(
-                    'absolute inset-0 inline-block w-full h-1/2 transform group-hover:bg-gray-400',
-                    { 'bg-gray-500': isActive }
+                    'absolute inset-0 inline-block w-full h-1/2 transform group-hover:bg-gray-500',
+                    { 'bg-gray-600': isActive }
                   )}
                 />
               </span>
