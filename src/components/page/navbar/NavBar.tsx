@@ -8,7 +8,7 @@ interface Props {
 
 const NavBar = ({ menu }: Props): JSX.Element => {
   return (
-    <section className="relative w-full px-8 text-gray-300 body-font z-10">
+    <section className="hidden md:block relative w-full px-8 text-gray-300 body-font z-10">
       <div className="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-7xl">
         <Link href="/">
           <a className="z-10">
