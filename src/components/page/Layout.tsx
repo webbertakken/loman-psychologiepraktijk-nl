@@ -7,7 +7,7 @@ interface Props {
 
 const Layout = ({ children, menu }: Props): JSX.Element => {
   return (
-    <div>
+    <div className="font-serif">
       <NavBar menu={menu} />
       <main>{children}</main>
     </div>
