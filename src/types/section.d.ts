@@ -15,6 +15,7 @@ interface ProfileSectionProps {
   title: string
   slug: string
   photo: Entry<any>
+  photoShouldBeOnTheLeft: boolean
   vocation: string
   location: string
   getInTouchText: string
