@@ -9,6 +9,7 @@ import GetInTouchButton from './fields/GetInTouchButton'
 import LinkedInIcon from './social/LinkedInIcon'
 import { ProfileSectionEntry } from '../../../types/section'
 import FadeIntoView from '../../animations/fade-into-view'
+import cx from 'classnames'
 
 interface Props {
   section: ProfileSectionEntry
@@ -19,6 +20,7 @@ const ProfileCardSection = ({ section }: Props): JSX.Element => {
     title,
     slug,
     photo,
+    photoShouldBeOnTheLeft,
     vocation,
     location,
     shortDescription,
@@ -33,6 +35,15 @@ const ProfileCardSection = ({ section }: Props): JSX.Element => {
 
   const photoUrl = `https:${photo.fields.file.url}`
 
+  const Photo = () => (
+    <div className="w-full lg:w-2/5">
+      <img
+        className="rounded-none lg:rounded-lg shadow-2xl hidden lg:block"
+        src={photoUrl}
+      />
+    </div>
+  )
+
   return (
     <div
       id={slug}
@@ -44,10 +55,22 @@ const ProfileCardSection = ({ section }: Props): JSX.Element => {
       }}
     >
       <div className="max-w-3xl flex items-center h-auto flex-wrap mx-auto my-12 lg:my-0">
-        <div className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0">
+        {photoShouldBeOnTheLeft && <Photo />}
+        <div
+          className={cx(
+            'w-full lg:w-3/5 shadow-2xl bg-white opacity-75 mx-6 lg:mx-0',
+            {
+              'rounded-lg': true,
+              'lg:rounded-l-lg': !photoShouldBeOnTheLeft,
+              'lg:rounded-r-none': !photoShouldBeOnTheLeft,
+              'lg:rounded-r-lg': photoShouldBeOnTheLeft,
+              'lg:rounded-l-none': photoShouldBeOnTheLeft,
+            }
+          )}
+        >
           <div className="p-4 lg:p-12 text-center lg:text-left">
             <div
-              className="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
+              className="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-top"
               style={{ backgroundImage: `url('${photoUrl}')` }}
             />
 
@@ -87,12 +110,7 @@ const ProfileCardSection = ({ section }: Props): JSX.Element => {
           </div>
         </div>
 
-        <div className="w-full lg:w-2/5">
-          <img
-            className="rounded-none lg:rounded-lg shadow-2xl hidden lg:block"
-            src={photoUrl}
-          />
-        </div>
+        {!photoShouldBeOnTheLeft && <Photo />}
       </div>
     </div>
   )

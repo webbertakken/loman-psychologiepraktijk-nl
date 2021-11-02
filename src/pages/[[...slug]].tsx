@@ -3,6 +3,10 @@ import Page from '../components/page/Page'
 import { getContentfulClient } from '../core/contentful'
 import { PageEntry, PageProps } from '../types/page'
 import { MenuSortOrderEntry, MenuSortOrderProps } from '../types/menu'
+import {
+  BannerNotificationEntry,
+  BannerNotificationProps,
+} from '../types/banner'
 
 const client = getContentfulClient()
 
@@ -16,14 +20,19 @@ const getPages = async (): Promise<PageEntry[]> => {
 }
 
 const getMenuSortOrder = async (): Promise<MenuSortOrderEntry> => {
-  const { items: menuSortOrders } = await client.getEntries<MenuSortOrderProps>(
-    {
-      content_type: 'menuSortOrder',
-      include: 1,
-    }
-  )
+  const { items: sortOrders } = await client.getEntries<MenuSortOrderProps>({
+    content_type: 'menuSortOrder',
+  })
 
-  return menuSortOrders[0]
+  return sortOrders?.[0]
+}
+
+const getBannerNotification = async (): Promise<BannerNotificationEntry> => {
+  const { items: banners } = await client.getEntries<BannerNotificationProps>({
+    content_type: 'bannerNotification',
+  })
+
+  return banners?.[0]
 }
 
 const getActivePath = (slug: null | string | string[]) => {
@@ -48,6 +57,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const pages = await getPages()
   const menuSortOrder = await getMenuSortOrder()
+  const banner = await getBannerNotification()
   const activePath = getActivePath(slug)
 
   const sortOrder = menuSortOrder?.fields.pages.map(({ fields }) => fields.slug)
@@ -85,7 +95,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     })
 
   return page
-    ? { props: { page, menu }, revalidate: 3 }
+    ? { props: { page, menu, banner }, revalidate: 3 }
     : { redirect: { destination: '/', permanent: false } }
 }
 
