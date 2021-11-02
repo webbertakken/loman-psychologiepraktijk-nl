@@ -1,16 +1,14 @@
-// import MenuLinks from './menu/MenuLinks'
+import NavBar from './navbar/NavBar'
 
 interface Props {
   children: JSX.Element
   menu?: Record<string, any>[]
 }
 
-const Layout = ({ children }: Props): JSX.Element => {
+const Layout = ({ children, menu }: Props): JSX.Element => {
   return (
-    <div>
-      {/*<header>*/}
-      {/*  <MenuLinks menu={menu} />*/}
-      {/*</header>*/}
+    <div className="font-serif">
+      <NavBar menu={menu} />
       <main>{children}</main>
     </div>
   )

@@ -30,10 +30,8 @@ const BasicSection = ({ section, index }: Props): JSX.Element => {
               <h3 className="text-2xl font-bold leading-7">{subtitle}</h3>
             </div>
 
-            <div className="w-full mt-5 md:mt-0 md:w-4/5 md:pl-2">
-              <p className="text-base font-normal leading-none text-gray-700 md:text-lg">
-                {documentToReactComponents(content)}
-              </p>
+            <div className="prose w-full mt-5 md:mt-0 md:w-4/5 md:pl-2 text-gray-700 md:text-lg">
+              {documentToReactComponents(content)}
             </div>
           </div>
         </FadeIntoView>

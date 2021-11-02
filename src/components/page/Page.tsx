@@ -2,6 +2,7 @@ import Layout from './Layout'
 import LoadingPage from '../loading/LoadingPage'
 import { PageEntry } from '../../types/page'
 import Section from '../section/Section'
+import { MenuProps } from '../../types/menu'
 
 interface Props {
   page: PageEntry

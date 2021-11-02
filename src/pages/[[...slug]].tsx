@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import Page from '../components/page/Page'
 import { getContentfulClient } from '../core/contentful'
 import { PageEntry, PageProps } from '../types/page'
+import { MenuSortOrderEntry, MenuSortOrderProps } from '../types/menu'
 
 const client = getContentfulClient()
 
@@ -12,6 +13,17 @@ const getPages = async (): Promise<PageEntry[]> => {
   })
 
   return pages
+}
+
+const getMenuSortOrder = async (): Promise<MenuSortOrderEntry> => {
+  const { items: menuSortOrders } = await client.getEntries<MenuSortOrderProps>(
+    {
+      content_type: 'menuSortOrder',
+      include: 1,
+    }
+  )
+
+  return menuSortOrders[0]
 }
 
 const getActivePath = (slug: null | string | string[]) => {
@@ -35,14 +47,21 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params.slug?.[0] || null
 
   const pages = await getPages()
+  const menuSortOrder = await getMenuSortOrder()
   const activePath = getActivePath(slug)
+
+  const sortOrder = menuSortOrder?.fields.pages.map(({ fields }) => fields.slug)
+  const menuSortFn = (a, b) => {
+    if (b.fields.isHomePage) return 1
+    return sortOrder.indexOf(a.fields.slug) - sortOrder.indexOf(b.fields.slug)
+  }
 
   const page = slug
     ? pages.find((page) => page.fields.slug === slug)
     : pages.find((page) => page.fields.isHomePage)
 
   const menu = pages
-    .sort((a, b) => (b.fields.isHomePage ? 1 : -1))
+    .sort(menuSortFn)
     .filter(({ fields }) => fields.shouldBeShownInTheMenu)
     .filter(({ fields }) => !fields.parentPage)
     .map((page) => {

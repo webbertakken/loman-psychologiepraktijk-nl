@@ -13,10 +13,7 @@ export const TherapyTypeCard = ({ card }: Props): JSX.Element => {
 
   const imageSrc = `https:${image.fields.file.url}`
   return (
-    <div
-      id={slug}
-      className="max-w-3xl pb-8 mx-auto font-serif md:py-12 lg:py-16"
-    >
+    <div id={slug} className="max-w-3xl pb-8 mx-auto md:py-12 lg:py-16">
       <div className="pb-8 border-b md:px-8 md:pb-12 lg:pb-16 border-gray-150 dark:border-gray-750 sm:text-center">
         <FadeIntoView>
           <a href={link} className="block mb-10">
@@ -47,7 +44,7 @@ export const TherapyTypeCard = ({ card }: Props): JSX.Element => {
           </FadeIntoView>
 
           <FadeIntoView>
-            <p className="text-base text-gray-600 lg:text-lg">
+            <p className="prose text-base text-gray-600 lg:text-lg">
               {documentToReactComponents(content)}
             </p>
           </FadeIntoView>
