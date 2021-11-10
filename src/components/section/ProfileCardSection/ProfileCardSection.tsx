@@ -10,6 +10,7 @@ import LinkedInIcon from './social/LinkedInIcon'
 import { ProfileSectionEntry } from '../../../types/section'
 import FadeIntoView from '../../animations/fade-into-view'
 import cx from 'classnames'
+import Image from 'next/image'
 
 interface Props {
   section: ProfileSectionEntry
@@ -33,13 +34,18 @@ const ProfileCardSection = ({ section }: Props): JSX.Element => {
     youtubeHandle,
   } = section.fields
 
-  const photoUrl = `https:${photo.fields.file.url}`
+  const image = {
+    src: `https:${photo.fields.file.url}`,
+    width: photo.fields.file.details.image.width,
+    height: photo.fields.file.details.image.height,
+  }
 
   const Photo = () => (
-    <div className="w-full lg:w-2/5">
-      <img
-        className="rounded-none lg:rounded-lg shadow-2xl hidden lg:block"
-        src={photoUrl}
+    <div className="w-full lg:w-2/5 hidden lg:block">
+      <Image
+        className="rounded-none lg:rounded-lg shadow-2xl"
+        alt={title}
+        {...image}
       />
     </div>
   )
@@ -71,7 +77,7 @@ const ProfileCardSection = ({ section }: Props): JSX.Element => {
           <div className="p-4 lg:p-12 text-center lg:text-left">
             <div
               className="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-top"
-              style={{ backgroundImage: `url('${photoUrl}')` }}
+              style={{ backgroundImage: `url('${image.src}')` }}
             />
 
             <FadeIntoView delay={100}>

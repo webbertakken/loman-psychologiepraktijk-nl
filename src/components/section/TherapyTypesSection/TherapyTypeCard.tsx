@@ -11,15 +11,21 @@ export const TherapyTypeCard = ({ card }: Props): JSX.Element => {
 
   const link = pageToLinkTo ? `/${pageToLinkTo.fields.slug}` : undefined
 
-  const imageSrc = `https:${image.fields.file.url}`
+  const imageProps = {
+    src: `https:${image.fields.file.url}`,
+    width: image.fields.file.details.image.width,
+    height: image.fields.file.details.image.height,
+  }
+
   return (
     <div id={slug} className="max-w-3xl pb-8 mx-auto md:py-12 lg:py-16">
       <div className="pb-8 border-b md:px-8 md:pb-12 lg:pb-16 border-gray-150 dark:border-gray-750 sm:text-center">
         <FadeIntoView>
           <a href={link} className="block mb-10">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={imageSrc}
               alt={title}
+              {...imageProps}
               className="object-cover object-center w-full md:rounded h-72"
             />
           </a>
