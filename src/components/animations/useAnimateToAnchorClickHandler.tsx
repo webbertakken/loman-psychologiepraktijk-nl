@@ -1,6 +1,6 @@
 export function useAnimateToAnchorClickHandler() {
   const onClick = (e) => {
-    const href = e.target.getAttribute('href').replace(/^\/+/, '')
+    const href = e.target.getAttribute('href').replace(/^\/+(index)?/, '')
 
     if (!/^#/.test(href)) return
 
