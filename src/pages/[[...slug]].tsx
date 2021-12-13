@@ -94,8 +94,23 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       return { title, path, isActive, subPages }
     })
 
+  // Todo - find simpler way to remove recursion
+  const removeKey = (obj, keyToRemove) =>
+    JSON.parse(
+      JSON.stringify(obj, (key, val) => (key === keyToRemove ? {} : val))
+    )
+
+  const removeRecurseKey = (obj, keyToRemove) =>
+    JSON.parse(
+      JSON.stringify(obj, (key, val) =>
+        key === keyToRemove ? removeKey(val, 'fields') : val
+      )
+    )
+
+  const sanitisedPage = removeRecurseKey(page, 'parentPage')
+
   return page
-    ? { props: { page, menu, banner }, revalidate: 3 }
+    ? { props: { page: sanitisedPage, menu, banner }, revalidate: 3 }
     : { redirect: { destination: '/', permanent: false } }
 }
 
