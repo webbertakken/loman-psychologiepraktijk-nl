@@ -7,7 +7,7 @@ const Footer = ({}: Props): JSX.Element => {
   return (
     <section className="py-10 bg-black mt-auto">
       <div className="px-10 mx-auto max-w-7xl">
-        <LogoAndSocialLayer />
+        {/*<LogoAndSocialLayer />*/}
         <CopyrightAndLinksLayer />
       </div>
     </section>
