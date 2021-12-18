@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Logo from '../../../assets/logo.svg'
-import MenuLinks from './MenuLinks'
+import MenuItems from './MenuItems'
 
 interface Props {
   menu?: Record<string, any>[]
@@ -16,7 +16,7 @@ const NavBar = ({ menu }: Props): JSX.Element => {
           </a>
         </Link>
 
-        <MenuLinks menu={menu} />
+        <MenuItems menu={menu} />
 
         {/*<div className="relative z-10 inline-flex items-center space-x-3 md:ml-5 lg:justify-end">*/}
         {/*  <a*/}

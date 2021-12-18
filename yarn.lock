@@ -1478,6 +1478,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@headlessui/react@npm:^1.4.2":
+  version: 1.4.2
+  resolution: "@headlessui/react@npm:1.4.2"
+  peerDependencies:
+    react: ^16 || ^17 || ^18
+    react-dom: ^16 || ^17 || ^18
+  checksum: 28c36204430365190c05cbd48235f8239897360c8d55189583c03868fe640b171051238a8672a501b441de79281bb08285966105bfeb4534ca0e612382dcd41f
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.5.0":
   version: 0.5.0
   resolution: "@humanwhocodes/config-array@npm:0.5.0"
@@ -9128,6 +9138,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-icons@npm:^4.3.1":
+  version: 4.3.1
+  resolution: "react-icons@npm:4.3.1"
+  peerDependencies:
+    react: "*"
+  checksum: 2cc608acdd3e906aa3aaee290b8398220639677c949382d86e554020e5dab6a9f1ed7484418aa5272cb5c5c018e1fc9a323d433d901697a76530029f9ecb1263
+  languageName: node
+  linkType: hard
+
 "react-is@npm:17.0.2, react-is@npm:^16.12.0 || ^17.0.0, react-is@npm:^17.0.1, react-is@npm:^17.0.2":
   version: 17.0.2
   resolution: "react-is@npm:17.0.2"
@@ -9528,6 +9547,7 @@ resolve@^2.0.0-next.3:
   dependencies:
     "@contentful/rich-text-react-renderer": ^15.6.2
     "@contentful/rich-text-types": ^15.6.2
+    "@headlessui/react": ^1.4.2
     "@jest/types": ^27.2.5
     "@svgr/webpack": ^5.5.0
     "@tailwindcss/jit": ^0.1.18
@@ -9561,6 +9581,7 @@ resolve@^2.0.0-next.3:
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
+    react-icons: ^4.3.1
     react-spring: 9.2.4
     react-test-renderer: ^17.0.2
     react-tippy: ^1.4.0
