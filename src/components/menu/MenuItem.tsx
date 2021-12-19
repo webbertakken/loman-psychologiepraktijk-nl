@@ -2,13 +2,22 @@ import Link from 'next/link'
 import cx from 'classnames'
 import { Fragment, useState } from 'react'
 import { Popover, Transition } from '@headlessui/react'
-import { RootMenuItemProps } from '../../../types/menu'
-import DynamicIcon from '../../icons/DynamicIcon'
+import { RootMenuItemProps } from '../../types/menu'
+import DynamicIcon from '../icons/DynamicIcon'
 import { HiChevronDown } from 'react-icons/hi'
 
-interface Props extends RootMenuItemProps {}
+interface Props extends RootMenuItemProps {
+  className?: string
+}
 
-const MenuItem = ({ title, path, isActive, subPages }: Props): JSX.Element => {
+const MenuItem = ({
+  title,
+  subtitle,
+  path,
+  isActive,
+  subPages,
+  className,
+}: Props): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const hasSubpages = subPages.length >= 1
@@ -23,8 +32,10 @@ const MenuItem = ({ title, path, isActive, subPages }: Props): JSX.Element => {
         <a
           key={path}
           className={cx(
-            'group inline-flex outline-none items-center relative font-thin leading-6 text-gray-300 transition duration-150 ease-out hover:text-gray-400',
-            { 'text-gray-400': isOpen }
+            `group inline-flex outline-none items-center relative font-thin leading-6 transition duration-150 ease-out`,
+            className,
+            { 'text-gray-500': isOpen },
+            { 'text-gray-400 hover:text-gray-500': !className }
           )}
         >
           <span className="block pb-1">{title}</span>
@@ -41,8 +52,8 @@ const MenuItem = ({ title, path, isActive, subPages }: Props): JSX.Element => {
           <span className="absolute bottom-0 left-0 inline-block w-full h-0.5 overflow-hidden">
             <span
               className={cx(
-                'absolute inset-0 inline-block w-full h-1/2 transform group-hover:bg-gray-500',
-                { 'bg-gray-400': isActive || isOpen }
+                'absolute inset-0 inline-block w-full h-1/2 transform group-hover:bg-gray-600',
+                { 'bg-gray-500': isActive || isOpen }
               )}
             />
           </span>
@@ -67,25 +78,30 @@ const MenuItem = ({ title, path, isActive, subPages }: Props): JSX.Element => {
           >
             <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
               <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                <Link key={path} href={path}>
+                  <a className="text-gray-600 hover:text-gray-800">
+                    <strong>{subtitle}</strong>
+                  </a>
+                </Link>
                 {subPages.map(({ path, title, subtitle, icon }) => {
                   return (
-                    <a
-                      key={path}
-                      href={path}
-                      className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
-                    >
-                      <DynamicIcon
-                        icon={icon}
-                        className="flex-shrink-0 h-6 w-6 text-indigo-600"
-                        aria-hidden="true"
-                      />
-                      <div className="ml-4">
-                        <p className="text-base font-medium text-gray-900">
-                          {title}
-                        </p>
-                        <p className="mt-1 text-sm text-gray-500">{subtitle}</p>
-                      </div>
-                    </a>
+                    <Link key={path} href={path}>
+                      <a className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
+                        <DynamicIcon
+                          icon={icon}
+                          className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                          aria-hidden="true"
+                        />
+                        <div className="ml-4">
+                          <p className="text-base font-medium text-gray-900">
+                            {title}
+                          </p>
+                          <p className="mt-1 text-sm text-gray-500">
+                            {subtitle}
+                          </p>
+                        </div>
+                      </a>
+                    </Link>
                   )
                 })}
               </div>
