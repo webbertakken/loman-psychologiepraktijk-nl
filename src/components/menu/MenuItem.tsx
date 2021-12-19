@@ -32,9 +32,10 @@ const MenuItem = ({
         <a
           key={path}
           className={cx(
-            'group inline-flex outline-none items-center relative font-thin leading-6 text-gray-300 transition duration-150 ease-out hover:text-gray-400',
-            { 'text-gray-400': isOpen },
-            className
+            `group inline-flex outline-none items-center relative font-thin leading-6 transition duration-150 ease-out`,
+            className,
+            { 'text-gray-500': isOpen },
+            { 'text-gray-400 hover:text-gray-500': !className }
           )}
         >
           <span className="block pb-1">{title}</span>
@@ -51,8 +52,8 @@ const MenuItem = ({
           <span className="absolute bottom-0 left-0 inline-block w-full h-0.5 overflow-hidden">
             <span
               className={cx(
-                'absolute inset-0 inline-block w-full h-1/2 transform group-hover:bg-gray-500',
-                { 'bg-gray-400': isActive || isOpen }
+                'absolute inset-0 inline-block w-full h-1/2 transform group-hover:bg-gray-600',
+                { 'bg-gray-500': isActive || isOpen }
               )}
             />
           </span>
@@ -78,7 +79,7 @@ const MenuItem = ({
             <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
               <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                 <Link key={path} href={path}>
-                  <a className="text-gray-600">
+                  <a className="text-gray-600 hover:text-gray-800">
                     <strong>{subtitle}</strong>
                   </a>
                 </Link>

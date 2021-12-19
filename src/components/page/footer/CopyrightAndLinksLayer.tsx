@@ -16,7 +16,7 @@ const CopyrightAndLinksLayer = ({ menu }: Props): JSX.Element => {
       <MenuItems
         menu={menu}
         className="flex flex-row justify-center pb-3 -ml-4 -mr-4 text-sm"
-        itemClassName="mx-4 text-gray-500 hover:text-white"
+        itemClassName="mx-4 text-gray-500 hover:text-gray-400"
       />
     </div>
   )
