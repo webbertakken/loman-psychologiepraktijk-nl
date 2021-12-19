@@ -4,10 +4,11 @@ import { Entry } from 'contentful'
 
 interface PageProps {
   title: string
-  subtitle?: string
-  isHomePage: boolean
   slug: string
   menuItemTitle: string
+  subtitle: string
+  icon: string
+  isHomePage: boolean
   parentPage: any
   shouldBeShownInTheMenu: boolean
   sections: any

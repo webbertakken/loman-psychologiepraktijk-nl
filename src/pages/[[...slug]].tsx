@@ -75,7 +75,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     .filter(({ fields }) => fields.shouldBeShownInTheMenu)
     .filter(({ fields }) => !fields.parentPage)
     .map((page) => {
-      const { slug: rootPageSlug, menuItemTitle: title } = page.fields
+      const {
+        slug: rootPageSlug,
+        menuItemTitle: title,
+        subtitle = '',
+        icon = '',
+      } = page.fields
+      console.log(page.fields)
       const path = page.fields.isHomePage ? '/' : `/${rootPageSlug}`
       const isActive = path === activePath
 
@@ -84,14 +90,19 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         .filter(({ fields }) => fields.parentPage?.sys.id === page.sys.id)
         .filter(({ fields }) => fields.shouldBeShownInTheMenu)
         .map((subPage) => {
-          const { menuItemTitle: title, slug: subPageSlug } = subPage.fields
+          const {
+            menuItemTitle: title,
+            slug: subPageSlug,
+            subtitle = '',
+            icon = '',
+          } = subPage.fields
           const subPath = `/${rootPageSlug}/${subPageSlug}`
           const isActive = subPath === activePath
 
-          return { title, path: subPath, isActive }
+          return { title, path: subPath, isActive, subtitle, icon }
         })
 
-      return { title, path, isActive, subPages }
+      return { title, path, isActive, subPages, subtitle, icon }
     })
 
   // Todo - find simpler way to remove recursion

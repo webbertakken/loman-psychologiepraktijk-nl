@@ -2,40 +2,9 @@ import Link from 'next/link'
 import cx from 'classnames'
 import { Fragment, useState } from 'react'
 import { Popover, Transition } from '@headlessui/react'
-import {
-  HiOutlineChartBar,
-  HiOutlineCursorClick,
-  HiOutlineShieldCheck,
-  HiOutlineViewGrid,
-  HiOutlineRefresh,
-  HiChevronDown,
-} from 'react-icons/hi'
 import { RootMenuItemProps } from '../../../types/menu'
-
-const placeholders = [
-  {
-    description:
-      'Get a better understanding of where your traffic is coming from.',
-    icon: HiOutlineChartBar,
-  },
-  {
-    description: 'Speak directly to your customers in a more meaningful way.',
-    icon: HiOutlineCursorClick,
-  },
-  {
-    description: "Your customers' data will be safe and secure.",
-    icon: HiOutlineShieldCheck,
-  },
-  {
-    description: "Connect with third-party tools that you're already using.",
-    icon: HiOutlineViewGrid,
-  },
-  {
-    description:
-      'Build strategic funnels that will drive your customers to convert',
-    icon: HiOutlineRefresh,
-  },
-]
+import DynamicIcon from '../../icons/DynamicIcon'
+import { HiChevronDown } from 'react-icons/hi'
 
 interface Props extends RootMenuItemProps {}
 
@@ -98,17 +67,15 @@ const MenuItem = ({ title, path, isActive, subPages }: Props): JSX.Element => {
           >
             <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
               <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                {subPages.map(({ path, title }, index) => {
-                  // Todo - replace placeholders
-                  const Icon = placeholders[index].icon
-                  const description = placeholders[index].description
+                {subPages.map(({ path, title, subtitle, icon }, index) => {
                   return (
                     <a
                       key={path}
                       href={path}
                       className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
                     >
-                      <Icon
+                      <DynamicIcon
+                        icon={icon}
                         className="flex-shrink-0 h-6 w-6 text-indigo-600"
                         aria-hidden="true"
                       />
@@ -116,9 +83,7 @@ const MenuItem = ({ title, path, isActive, subPages }: Props): JSX.Element => {
                         <p className="text-base font-medium text-gray-900">
                           {title}
                         </p>
-                        <p className="mt-1 text-sm text-gray-500">
-                          {description}
-                        </p>
+                        <p className="mt-1 text-sm text-gray-500">{subtitle}</p>
                       </div>
                     </a>
                   )

@@ -3,6 +3,8 @@ import { PageEntry } from './page'
 
 interface MenuItemProps {
   title: string
+  subtitle: string
+  icon: string
   path: string
   isActive: boolean
 }
