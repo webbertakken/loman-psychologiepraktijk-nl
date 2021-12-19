@@ -2,10 +2,11 @@ import NavBar from './navbar/NavBar'
 import Banner from './Banner'
 import { BannerNotificationEntry } from '../../types/banner'
 import Footer from './footer/Footer'
+import { MenuProps } from '../../types/menu'
 
 interface Props {
   children: JSX.Element
-  menu?: Record<string, any>[]
+  menu: MenuProps
   banner?: BannerNotificationEntry
 }
 

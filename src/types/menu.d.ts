@@ -1,7 +1,17 @@
 import { Entry } from 'contentful'
 import { PageEntry } from './page'
 
-type MenuProps = Record<string, any>[]
+interface MenuItemProps {
+  title: string
+  path: string
+  isActive: boolean
+}
+
+interface RootMenuItemProps extends MenuItemProps {
+  subPages: Array<MenuItemProps>
+}
+
+type MenuProps = Array<RootMenuItemProps>
 
 interface MenuSortOrderProps {
   shouldShowSubmenus: boolean

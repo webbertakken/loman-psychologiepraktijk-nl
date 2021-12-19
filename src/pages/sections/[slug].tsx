@@ -44,6 +44,8 @@ interface Props {
 
 export default function Sections({ section }: Props): JSX.Element {
   return (
-    <Layout>{section ? <Section section={section} /> : <LoadingPage />}</Layout>
+    <Layout menu={[]}>
+      {section ? <Section section={section} /> : <LoadingPage />}
+    </Layout>
   )
 }

@@ -22,7 +22,7 @@ interface Props {
 
 export default function Sections({ sections }: Props): JSX.Element {
   return (
-    <Layout>
+    <Layout menu={[]}>
       <div className="list">
         {sections.map((section) => (
           <SectionPreview key={section.sys.id} section={section} />
