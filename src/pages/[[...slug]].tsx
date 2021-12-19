@@ -94,8 +94,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = (await getPages()).map((page) => {
     const { slug: pageSlug, isHomePage, parentPage } = page.fields
     const parentSlug = parentPage?.fields.slug
-    const slug = parentSlug ? `${parentSlug}/${pageSlug}` : pageSlug
-    return { params: { slug: isHomePage ? null : [slug] } }
+
+    let slug = parentSlug ? [parentSlug, pageSlug] : [pageSlug]
+    if (isHomePage) slug = null
+
+    return { params: { slug } }
   })
 
   return {
@@ -112,9 +115,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   // Page
   const pages = await getPages()
+  console.log(fullSlug, pageSlug)
   const rawPage = pageSlug
     ? pages.find((page) => page.fields.slug === pageSlug)
     : pages.find((page) => page.fields.isHomePage)
+  console.log(rawPage)
   if (!rawPage) return { redirect: { destination: '/', permanent: false } }
 
   // Props
