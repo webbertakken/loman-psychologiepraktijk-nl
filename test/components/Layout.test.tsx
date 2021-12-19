@@ -9,7 +9,14 @@ describe('Layout', () => {
   })
 
   it('renders renders children', () => {
-    render(<Layout><button onClick={() => alert('button is clickable')}>Test Button</button></Layout>, {})
+    render(
+      <Layout>
+        <button onClick={() => alert('button is clickable')}>
+          Test Button
+        </button>
+      </Layout>,
+      {}
+    )
     window.alert = jest.fn()
     fireEvent.click(screen.getByText('Test Button'))
     expect(window.alert).toHaveBeenCalledWith('button is clickable')

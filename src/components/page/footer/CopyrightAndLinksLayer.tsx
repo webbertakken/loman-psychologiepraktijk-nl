@@ -1,8 +1,11 @@
 import Link from 'next/link'
+import { MenuProps } from '../../../types/menu'
 
-interface Props {}
+interface Props {
+  menu: MenuProps
+}
 
-const CopyrightAndLinksLayer = ({}: Props): JSX.Element => {
+const CopyrightAndLinksLayer = ({ menu }: Props): JSX.Element => {
   return (
     <div className="flex flex-col justify-between text-center md:flex-row">
       <p className="order-last text-sm leading-tight text-gray-500 md:order-first">

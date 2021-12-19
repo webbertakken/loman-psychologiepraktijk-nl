@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import Logo from '../../../assets/logo.svg'
-import MenuLinks from './MenuLinks'
+import MenuItems from './MenuItems'
+import { MenuProps } from '../../../types/menu'
 
 interface Props {
-  menu?: Record<string, any>[]
+  menu: MenuProps
 }
 
 const NavBar = ({ menu }: Props): JSX.Element => {
@@ -16,16 +17,7 @@ const NavBar = ({ menu }: Props): JSX.Element => {
           </a>
         </Link>
 
-        <MenuLinks menu={menu} />
-
-        {/*<div className="relative z-10 inline-flex items-center space-x-3 md:ml-5 lg:justify-end">*/}
-        {/*  <a*/}
-        {/*    href="#"*/}
-        {/*    className="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-gray-600 whitespace-no-wrap bg-white border border-gray-200 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:shadow-none"*/}
-        {/*  >*/}
-        {/*    🧑*/}
-        {/*  </a>*/}
-        {/*</div>*/}
+        <MenuItems menu={menu} />
       </div>
     </section>
   )
