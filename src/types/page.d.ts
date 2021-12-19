@@ -10,7 +10,9 @@ interface PageProps {
   icon: string
   isHomePage: boolean
   parentPage: any
-  shouldBeShownInTheMenu: boolean
+  shouldBeShownInHeader: boolean
+  shouldBeShownInFooter: boolean
+  shouldBeShownInSubmenus: boolean
   sections: any
 }
 

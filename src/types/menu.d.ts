@@ -15,7 +15,10 @@ interface RootMenuItemProps extends MenuItemProps {
 
 type MenuProps = Array<RootMenuItemProps>
 
+type MenuOptions = 'header' | 'footer'
+
 interface MenuSortOrderProps {
+  menu: MenuOptions
   shouldShowSubmenus: boolean
   pages: PageEntry[]
 }

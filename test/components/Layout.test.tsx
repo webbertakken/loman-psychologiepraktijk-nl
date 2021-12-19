@@ -4,13 +4,13 @@ import Layout from '../../src/components/page/Layout'
 
 describe('Layout', () => {
   it('matches snapshot', () => {
-    const { asFragment } = render(<Layout menu={[]}>{null}</Layout>, {})
+    const { asFragment } = render(<Layout>{null}</Layout>, {})
     expect(asFragment()).toMatchSnapshot()
   })
 
   it('renders renders children', () => {
     render(
-      <Layout menu={[]}>
+      <Layout>
         <button onClick={() => alert('button is clickable')}>
           Test Button
         </button>
