@@ -62,12 +62,12 @@ const MenuItem = ({ title, path, isActive, subPages }: Props): JSX.Element => {
         >
           {/* these values assume that the menu is on the right-hand side */}
           <Popover.Panel
-            static
+            unmount={false}
             className="absolute z-10 right-0 -mr-4 pt-3 transform px-2 w-screen max-w-md sm:px-0 2xl:ml-0 2xl:left-1/2 2xl:-translate-x-1/2"
           >
             <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
               <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                {subPages.map(({ path, title, subtitle, icon }, index) => {
+                {subPages.map(({ path, title, subtitle, icon }) => {
                   return (
                     <a
                       key={path}

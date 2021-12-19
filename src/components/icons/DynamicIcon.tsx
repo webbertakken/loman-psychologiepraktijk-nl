@@ -11,9 +11,12 @@ const DynamicIcon: React.FC<Props> = ({ icon, ...iconContext }) => {
 
   if (!library || !icon) return fallback
 
-  const Icon = loadable(() => import(`react-icons/${library}/index.js`), {
-    resolveComponent: (el: JSX.Element) => el[icon as keyof JSX.Element],
-  })
+  const Icon = loadable(
+    () => import(/* webpackPrefetch: true */ `react-icons/${library}/index.js`),
+    {
+      resolveComponent: (el: JSX.Element) => el[icon as keyof JSX.Element],
+    }
+  )
 
   return (
     <IconContext.Provider value={iconContext}>
