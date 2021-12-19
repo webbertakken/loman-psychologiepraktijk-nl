@@ -6,9 +6,17 @@ import { RootMenuItemProps } from '../../../types/menu'
 import DynamicIcon from '../../icons/DynamicIcon'
 import { HiChevronDown } from 'react-icons/hi'
 
-interface Props extends RootMenuItemProps {}
+interface Props extends RootMenuItemProps {
+  className?: string
+}
 
-const MenuItem = ({ title, path, isActive, subPages }: Props): JSX.Element => {
+const MenuItem = ({
+  title,
+  path,
+  isActive,
+  subPages,
+  className,
+}: Props): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const hasSubpages = subPages.length >= 1
@@ -24,7 +32,8 @@ const MenuItem = ({ title, path, isActive, subPages }: Props): JSX.Element => {
           key={path}
           className={cx(
             'group inline-flex outline-none items-center relative font-thin leading-6 text-gray-300 transition duration-150 ease-out hover:text-gray-400',
-            { 'text-gray-400': isOpen }
+            { 'text-gray-400': isOpen },
+            className
           )}
         >
           <span className="block pb-1">{title}</span>

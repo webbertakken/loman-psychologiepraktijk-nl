@@ -53,7 +53,6 @@ const getBannerNotification = async (): Promise<BannerNotificationEntry> => {
 
 const getActivePath = (slug: null | string | string[]) => {
   if (slug === null) return '/'
-  console.log(slug)
   return typeof slug === 'string' ? `/${slug}` : `/${slug.join('/')}`
 }
 

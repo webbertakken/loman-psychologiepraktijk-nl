@@ -47,50 +47,9 @@ exports[`Layout matches snapshot 1`] = `
               Alle rechten voorbehouden
             </span>
           </p>
-          <ul
+          <nav
             class="flex flex-row justify-center pb-3 -ml-4 -mr-4 text-sm"
-          >
-            <li>
-              <a
-                class="px-4 text-gray-500 hover:text-white"
-                href="/contact"
-              >
-                Contact
-              </a>
-            </li>
-            <li>
-              <a
-                class="px-4 text-gray-500 hover:text-white"
-                href="/over-ons"
-              >
-                Over ons
-              </a>
-            </li>
-            <li>
-              <a
-                class="px-4 text-gray-500 hover:text-white"
-                href="/faq"
-              >
-                FAQ
-              </a>
-            </li>
-            <li>
-              <a
-                class="px-4 text-gray-500 hover:text-white"
-                href="/kwaliteitsstatuut"
-              >
-                Kwaliteitsstatuut
-              </a>
-            </li>
-            <li>
-              <a
-                class="px-4 text-gray-500 hover:text-white"
-                href="/voorwaarden"
-              >
-                Voorwaarden
-              </a>
-            </li>
-          </ul>
+          />
         </div>
       </div>
     </section>
