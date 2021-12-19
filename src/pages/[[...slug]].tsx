@@ -11,6 +11,7 @@ import {
   BannerNotificationEntry,
   BannerNotificationProps,
 } from '../types/banner'
+import { omitPathRecursively } from '../core/utils'
 
 const client = getContentfulClient()
 
@@ -33,8 +34,7 @@ const getMenuSortOrder = async (
   return sortOrders?.find((order) => order.fields.menu === menu)
 }
 
-const createMenuSortFn = async (menu: MenuOptions) => {
-  const menuSortOrder = await getMenuSortOrder(menu)
+const createMenuSortFn = (menuSortOrder: MenuSortOrderEntry) => {
   const sortOrder = menuSortOrder?.fields.pages.map(({ fields }) => fields.slug)
 
   return (a, b) => {
@@ -53,6 +53,7 @@ const getBannerNotification = async (): Promise<BannerNotificationEntry> => {
 
 const getActivePath = (slug: null | string | string[]) => {
   if (slug === null) return '/'
+  console.log(slug)
   return typeof slug === 'string' ? `/${slug}` : `/${slug.join('/')}`
 }
 
@@ -90,22 +91,11 @@ const getMenuStructure = (pages, activePath) => {
     })
 }
 
-// Todo - find simpler way for this
-const removeKey = (obj, keyToRemove) =>
-  JSON.parse(
-    JSON.stringify(obj, (key, val) => (key === keyToRemove ? {} : val))
-  )
-
-const removeRecurseKey = (obj, keyToRemove) =>
-  JSON.parse(
-    JSON.stringify(obj, (key, val) =>
-      key === keyToRemove ? removeKey(val, 'fields') : val
-    )
-  )
-
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = (await getPages()).map((page) => {
-    const { slug, isHomePage } = page.fields
+    const { slug: pageSlug, isHomePage, parentPage } = page.fields
+    const parentSlug = parentPage?.fields.slug
+    const slug = parentSlug ? `${parentSlug}/${pageSlug}` : pageSlug
     return { params: { slug: isHomePage ? null : [slug] } }
   })
 
@@ -116,42 +106,46 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const slug = params.slug?.[0] || null
+  // Route
+  const fullSlug: string | string[] = params.slug || null
+  const pageSlug = Array.isArray(fullSlug) ? fullSlug.slice(-1)[0] : fullSlug
+  const activePath = getActivePath(fullSlug)
 
+  // Page
   const pages = await getPages()
-  const banner = await getBannerNotification()
-  const activePath = getActivePath(slug)
+  const rawPage = pageSlug
+    ? pages.find((page) => page.fields.slug === pageSlug)
+    : pages.find((page) => page.fields.isHomePage)
+  if (!rawPage) return { redirect: { destination: '/', permanent: false } }
 
+  // Props
+  const page = omitPathRecursively(rawPage, 'parentPage.fields.sections')
+  const banner = await getBannerNotification()
+
+  const headerSortOrder = await getMenuSortOrder('header')
   const headerMenu = getMenuStructure(
     pages
       .filter(({ fields }) => fields.shouldBeShownInHeader)
-      .sort(await createMenuSortFn('header')),
+      .sort(createMenuSortFn(headerSortOrder)),
     activePath
   )
 
+  const footerSortOrder = await getMenuSortOrder('footer')
   const footerMenu = getMenuStructure(
     pages
       .filter(({ fields }) => fields.shouldBeShownInFooter)
-      .sort(await createMenuSortFn('footer')),
+      .sort(await createMenuSortFn(footerSortOrder)),
     'footer'
   )
 
-  const page = slug
-    ? pages.find((page) => page.fields.slug === slug)
-    : pages.find((page) => page.fields.isHomePage)
-
-  const sanitisedPage = removeRecurseKey(page, 'parentPage')
-
-  if (!page) return { redirect: { destination: '/', permanent: false } }
-
   return {
     props: {
-      page: sanitisedPage,
+      page,
+      banner,
       headerMenu,
       footerMenu,
-      banner,
     },
-    revalidate: 3,
+    revalidate: 3, // hit backend max once every 3 seconds
   }
 }
 
