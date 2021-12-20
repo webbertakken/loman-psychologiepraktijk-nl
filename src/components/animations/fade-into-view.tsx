@@ -16,6 +16,7 @@ const FadeIntoView = ({ children, className, delay }: FadeIntoViewProps) => (
         from={{ opacity: 0 }}
         delay={delay}
         to={{ opacity: isVisible ? 1 : 0.1 }}
+        config={{ friction: 60 }}
       >
         {({ opacity }) => (
           <animated.div className={className} style={{ opacity }}>

@@ -11,7 +11,7 @@ import {
   BannerNotificationEntry,
   BannerNotificationProps,
 } from '../types/banner'
-import { omitPathRecursively } from '../core/utils'
+import { replacePathsRecursively } from '../core/utils'
 
 const client = getContentfulClient()
 
@@ -73,6 +73,7 @@ const getMenuStructure = (pages, activePath) => {
       const subPages = pages
         .filter(({ fields }) => fields.parentPage?.sys.id === page.sys.id)
         .filter(({ fields }) => fields.shouldBeShownInSubmenus)
+        .sort((a, b) => a.fields.title.localeCompare(b.fields.title))
         .map((subPage) => {
           const {
             menuItemTitle: title,
@@ -89,6 +90,27 @@ const getMenuStructure = (pages, activePath) => {
       return { title, path, isActive, subPages, subtitle, icon }
     })
 }
+
+const replaceReferencesWithSlugs = (rawPage) =>
+  replacePathsRecursively(
+    rawPage,
+    ['fields.pageToLinkTo', 'fields.parentPage'],
+    (value) => {
+      if (!value) return
+      const { slug, parentPage: parent } = value.fields
+
+      const parentPage = parent
+        ? {
+            fields: {
+              slug: parent.fields.slug,
+              parentPage: parent.fields.parentPage,
+            },
+          }
+        : undefined
+
+      return { fields: { slug, parentPage } }
+    }
+  )
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = (await getPages()).map((page) => {
@@ -121,7 +143,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!rawPage) return { redirect: { destination: '/', permanent: false } }
 
   // Props
-  const page = omitPathRecursively(rawPage, 'parentPage.fields.sections')
+  const page = replaceReferencesWithSlugs(rawPage)
   const banner = await getBannerNotification()
 
   const headerSortOrder = await getMenuSortOrder('header')
