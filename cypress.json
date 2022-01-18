@@ -1,6 +1,5 @@
 {
   "baseUrl": "http://localhost:3000",
   "numTestsKeptInMemory": 250,
-  "videoCompression": false,
   "env": {}
 }
