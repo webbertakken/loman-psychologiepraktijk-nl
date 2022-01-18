@@ -1,19 +1,19 @@
-import FacebookIcon from './social/FacebookIcon'
-import TwitterIcon from './social/TwitterIcon'
-import YoutubeIcon from './social/YoutubeIcon'
-import InstagramIcon from './social/InstagramIcon'
-import Vocation from './fields/Vocation'
-import Location from './fields/Location'
-import Bio from './fields/Bio'
-import GetInTouchButton from './fields/GetInTouchButton'
-import LinkedInIcon from './social/LinkedInIcon'
-import { ProfileSectionEntry } from '../../../types/section'
-import FadeIntoView from '../../animations/fade-into-view'
-import cx from 'classnames'
-import Image from 'next/image'
+import FacebookIcon from './social/FacebookIcon';
+import TwitterIcon from './social/TwitterIcon';
+import YoutubeIcon from './social/YoutubeIcon';
+import InstagramIcon from './social/InstagramIcon';
+import Vocation from './fields/Vocation';
+import Location from './fields/Location';
+import Bio from './fields/Bio';
+import GetInTouchButton from './fields/GetInTouchButton';
+import LinkedInIcon from './social/LinkedInIcon';
+import { ProfileSectionEntry } from '../../../types/section';
+import FadeIntoView from '../../animations/fade-into-view';
+import cx from 'classnames';
+import Image from 'next/image';
 
 interface Props {
-  section: ProfileSectionEntry
+  section: ProfileSectionEntry;
 }
 
 const ProfileCardSection = ({ section }: Props): JSX.Element => {
@@ -32,23 +32,19 @@ const ProfileCardSection = ({ section }: Props): JSX.Element => {
     linkedInHandle,
     twitterHandle,
     youtubeHandle,
-  } = section.fields
+  } = section.fields;
 
   const image = {
     src: `https:${photo.fields.file.url}`,
     width: photo.fields.file.details.image.width,
     height: photo.fields.file.details.image.height,
-  }
+  };
 
   const Photo = () => (
     <div className="w-full lg:w-2/5 hidden lg:block">
-      <Image
-        className="rounded-none lg:rounded-lg shadow-2xl"
-        alt={title}
-        {...image}
-      />
+      <Image className="rounded-none lg:rounded-lg shadow-2xl" alt={title} {...image} />
     </div>
-  )
+  );
 
   return (
     <div
@@ -63,16 +59,13 @@ const ProfileCardSection = ({ section }: Props): JSX.Element => {
       <div className="max-w-3xl flex items-center h-auto flex-wrap mx-auto my-12 lg:my-0">
         {photoShouldBeOnTheLeft && <Photo />}
         <div
-          className={cx(
-            'w-full lg:w-3/5 shadow-2xl bg-white opacity-75 mx-6 lg:mx-0',
-            {
-              'rounded-lg': true,
-              'lg:rounded-l-lg': !photoShouldBeOnTheLeft,
-              'lg:rounded-r-none': !photoShouldBeOnTheLeft,
-              'lg:rounded-r-lg': photoShouldBeOnTheLeft,
-              'lg:rounded-l-none': photoShouldBeOnTheLeft,
-            }
-          )}
+          className={cx('w-full lg:w-3/5 shadow-2xl bg-white opacity-75 mx-6 lg:mx-0', {
+            'rounded-lg': true,
+            'lg:rounded-l-lg': !photoShouldBeOnTheLeft,
+            'lg:rounded-r-none': !photoShouldBeOnTheLeft,
+            'lg:rounded-r-lg': photoShouldBeOnTheLeft,
+            'lg:rounded-l-none': photoShouldBeOnTheLeft,
+          })}
         >
           <div className="p-4 lg:p-12 text-center lg:text-left">
             <div
@@ -119,7 +112,7 @@ const ProfileCardSection = ({ section }: Props): JSX.Element => {
         {!photoShouldBeOnTheLeft && <Photo />}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProfileCardSection
+export default ProfileCardSection;
