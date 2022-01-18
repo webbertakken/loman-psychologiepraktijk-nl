@@ -5,13 +5,15 @@ exports[`Layout matches snapshot 1`] = `
   <div
     class="font-serif min-h-screen flex flex-col"
   >
-    <section
+    <header
+      aria-label="Main navigation bar"
       class="hidden md:block relative w-full px-8 text-gray-300 body-font z-10"
     >
       <div
         class="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-7xl"
       >
         <a
+          aria-label="Logo of Loman psychologiepraktijk"
           class="z-10"
           href="/"
         >
@@ -20,13 +22,16 @@ exports[`Layout matches snapshot 1`] = `
           />
         </a>
         <nav
-          class="top-0 left-0 z-0 flex items-center justify-center h-full py-5 -ml-0 space-x-5 text-base md:-ml-5 md:py-0"
+          aria-label="Main navigation"
+          class="top-0 left-0 z-0 flex items-center justify-center h-full py-5 -ml-0 space-x-5 text-base md:-ml-5 md:py-0 bg-white"
+          role="navigation"
         />
       </div>
-    </section>
+    </header>
     <main />
-    <section
+    <footer
       class="py-10 bg-black mt-auto"
+      role="contentinfo"
     >
       <div
         class="px-10 mx-auto max-w-7xl"
@@ -35,7 +40,7 @@ exports[`Layout matches snapshot 1`] = `
           class="flex flex-col justify-between text-center lg:flex-row"
         >
           <p
-            class="order-last text-sm leading-tight text-gray-500 lg:order-first"
+            class="order-last text-sm leading-tight text-gray-400 lg:order-first"
           >
             <strong>
               Loman Psychologiepraktijk
@@ -48,11 +53,12 @@ exports[`Layout matches snapshot 1`] = `
             </span>
           </p>
           <nav
+            aria-label="Footer navigation"
             class="flex flex-row justify-center pb-3 -ml-4 -mr-4 text-sm"
           />
         </div>
       </div>
-    </section>
+    </footer>
   </div>
 </DocumentFragment>
 `;

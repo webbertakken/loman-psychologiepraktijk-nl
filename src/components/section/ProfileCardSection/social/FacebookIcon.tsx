@@ -1,21 +1,16 @@
-import { Tooltip } from 'react-tippy'
+import { Tooltip } from 'react-tippy';
 
 interface Props {
-  handle: string
+  handle: string;
 }
 
 const FacebookIcon = ({ handle: dirtyHandle }: Props): JSX.Element => {
-  const handle = dirtyHandle.replace(/^(@)/, '')
+  const handle = dirtyHandle.replace(/^(@)/, '');
   return (
     <Tooltip title={`@${handle}`}>
-      <a
-        className="link"
-        target="_blank"
-        rel="noreferrer"
-        href={`https://facebook.com/${handle}`}
-      >
+      <a className="link" target="_blank" rel="noreferrer" href={`https://facebook.com/${handle}`}>
         <svg
-          className="h-6 fill-current text-gray-600 hover:text-green-700"
+          className="h-6 fill-current text-gray-600 hover:text-green-800"
           role="img"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +20,7 @@ const FacebookIcon = ({ handle: dirtyHandle }: Props): JSX.Element => {
         </svg>
       </a>
     </Tooltip>
-  )
-}
+  );
+};
 
-export default FacebookIcon
+export default FacebookIcon;

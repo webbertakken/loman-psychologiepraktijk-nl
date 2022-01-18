@@ -1,26 +1,26 @@
-import Link from 'next/link'
-import { useAnimateToAnchorClickHandler } from '../../../animations/useAnimateToAnchorClickHandler'
+import Link from 'next/link';
+import { useAnimateToAnchorClickHandler } from '../../../animations/useAnimateToAnchorClickHandler';
 
 interface Props {
-  link: string
-  text: string
+  link: string;
+  text: string;
 }
 
 const GetInTouchButton = ({ link, text }: Props): JSX.Element => {
-  const onClick = useAnimateToAnchorClickHandler()
+  const onClick = useAnimateToAnchorClickHandler();
 
   return (
     <div className="pt-12 pb-8">
       <Link href={link}>
         <a
           onClick={onClick}
-          className="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full"
+          className="bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full"
         >
           {text}
         </a>
       </Link>
     </div>
-  )
-}
+  );
+};
 
-export default GetInTouchButton
+export default GetInTouchButton;
