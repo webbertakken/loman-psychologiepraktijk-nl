@@ -1,10 +1,11 @@
-import { BannerNotificationEntry } from '../../types/banner';
+import { AppContext } from './AppContext';
+import { useContext } from 'react';
 
-interface Props {
-  banner?: BannerNotificationEntry;
-}
+interface Props {}
 
-const Banner = ({ banner }: Props): JSX.Element => {
+const Banner = ({}: Props): JSX.Element => {
+  const { banner } = useContext(AppContext);
+
   if (!banner || !banner.fields.isEnabled) return null;
 
   return (

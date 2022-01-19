@@ -1,17 +1,13 @@
 import CopyrightAndLinksLayer from './CopyrightAndLinksLayer';
-import LogoAndSocialLayer from './LogoAndSocialLayer';
-import { MenuProps } from '../../../types/menu';
 
-interface Props {
-  menu: MenuProps;
-}
+interface Props {}
 
-const Footer = ({ menu }: Props): JSX.Element => {
+const Footer = ({}: Props): JSX.Element => {
   return (
     <footer role="contentinfo" className="py-10 bg-black mt-auto">
       <div className="px-10 mx-auto max-w-7xl">
         {/*<LogoAndSocialLayer />*/}
-        <CopyrightAndLinksLayer menu={menu} />
+        <CopyrightAndLinksLayer />
       </div>
     </footer>
   );

@@ -1,25 +1,28 @@
-import ProfileCardSection from './ProfileCardSection/ProfileCardSection'
-import { Entry } from 'contentful'
-import TherapyTypesSection from './TherapyTypesSection/TherapyTypesSection'
-import BasicSection from './BasicSection/BasicSection'
+import ProfileCardSection from './ProfileCardSection/ProfileCardSection';
+import { Entry } from 'contentful';
+import TherapyTypesSection from './TherapyTypesSection/TherapyTypesSection';
+import BasicSection from './BasicSection/BasicSection';
+import TherapyTypeDetailsSection from './TherapyTypeDetailsSection/TherapyTypeDetailsSection';
 
 interface Props {
-  section: Entry<any>
-  index?: number
+  section: Entry<any>;
+  index?: number;
 }
 const Section = ({ section, index }: Props): JSX.Element => {
-  const sectionType = section.sys.contentType.sys.id
+  const sectionType = section.sys.contentType.sys.id;
 
   switch (sectionType) {
     case 'section':
-      return <BasicSection section={section} index={index} />
+      return <BasicSection section={section} index={index} />;
     case 'profileCardSection':
-      return <ProfileCardSection section={section} />
+      return <ProfileCardSection section={section} />;
     case 'therapyTypesSection':
-      return <TherapyTypesSection section={section} />
+      return <TherapyTypesSection section={section} />;
+    case 'TherapyTypeDetailedSection':
+      return <TherapyTypeDetailsSection section={section} />;
     default:
-      return null
+      return null;
   }
-}
+};
 
-export default Section
+export default Section;

@@ -1,16 +1,12 @@
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import { Document } from '@contentful/rich-text-types'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { Document } from '@contentful/rich-text-types';
 
 interface Props {
-  shortDescription: Document
+  shortDescription: Document;
 }
 
 const Bio = ({ shortDescription }: Props): JSX.Element => {
-  return (
-    <p className="pt-8 text-sm">
-      {documentToReactComponents(shortDescription)}
-    </p>
-  )
-}
+  return <div className="pt-8 text-sm">{documentToReactComponents(shortDescription)}</div>;
+};
 
-export default Bio
+export default Bio;
