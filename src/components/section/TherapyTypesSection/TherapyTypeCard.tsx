@@ -1,26 +1,34 @@
-import { TherapyTypeCardEntry } from '../../../types/section'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import FadeIntoView from '../../animations/fade-into-view'
+import { TherapyTypeCardEntry } from '../../../types/section';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import FadeIntoView from '../../animations/fade-into-view';
+import Link from 'next/link';
+import { useMemo } from 'react';
 
 interface Props {
-  card: TherapyTypeCardEntry
+  card: TherapyTypeCardEntry;
 }
 
 export const TherapyTypeCard = ({ card }: Props): JSX.Element => {
-  const { title, slug, subtitle, content, image, pageToLinkTo } = card.fields
+  const { title, slug, subtitle, summary, image, pageToLinkTo } = card.fields;
 
-  const link = pageToLinkTo ? `/${pageToLinkTo.fields.slug}` : undefined
+  const link = useMemo(() => {
+    if (!pageToLinkTo) return '#';
+
+    return pageToLinkTo.fields.parentPage
+      ? `/${pageToLinkTo.fields.parentPage.fields.slug}/${pageToLinkTo.fields.slug}`
+      : `/${pageToLinkTo.fields.slug}`;
+  }, [pageToLinkTo]);
 
   const imageProps = {
     src: `https:${image.fields.file.url}`,
     width: image.fields.file.details.image.width,
     height: image.fields.file.details.image.height,
-  }
+  };
 
   return (
-    <div id={slug} className="max-w-3xl pb-8 mx-auto md:py-12 lg:py-16">
-      <div className="pb-8 border-b md:px-8 md:pb-12 lg:pb-16 border-gray-150 dark:border-gray-750 sm:text-center">
-        <FadeIntoView>
+    <div id={slug} className="max-w-3xl md:p-6 lg:py-12 sm:text-center mx-auto">
+      <FadeIntoView>
+        <Link href={link}>
           <a href={link} className="block mb-10">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -29,33 +37,44 @@ export const TherapyTypeCard = ({ card }: Props): JSX.Element => {
               className="object-cover object-center w-full md:rounded h-72"
             />
           </a>
-        </FadeIntoView>
+        </Link>
+      </FadeIntoView>
 
-        <div className="w-full px-6 md:px-0">
-          <FadeIntoView>
-            <h2 className="mt-4 mb-5">
-              <a
-                href={link}
-                className="text-xl font-bold leading-tight tracking-tight md:text-2xl lg:text-3xl dark:text-gray-100 prata"
-              >
+      <div className="w-full px-6 md:px-0">
+        <FadeIntoView>
+          <h2 className="mt-4 mb-5">
+            <Link href={link}>
+              <a className="text-xl font-bold leading-tight tracking-tight md:text-2xl lg:text-3xl dark:text-gray-100 prata">
                 {title}
               </a>
-            </h2>
-          </FadeIntoView>
+            </Link>
+          </h2>
+        </FadeIntoView>
 
-          <FadeIntoView>
-            <p className="mt-5 mb-6 text-xs text-gray-500 md:text-sm">
-              {subtitle}
-            </p>
-          </FadeIntoView>
+        <FadeIntoView>
+          <Link href={link}>
+            <a>
+              <p className="mt-5 mb-6 text-xs text-gray-500 md:text-sm">{subtitle}</p>
+            </a>
+          </Link>
+        </FadeIntoView>
 
-          <FadeIntoView>
-            <p className="prose text-base text-gray-600 lg:text-lg">
-              {documentToReactComponents(content)}
-            </p>
-          </FadeIntoView>
-        </div>
+        <FadeIntoView>
+          <p className="prose text-base text-gray-600 lg:text-lg mx-auto">
+            {documentToReactComponents(summary)}
+          </p>
+        </FadeIntoView>
+
+        <FadeIntoView delay={400}>
+          <div className="pt-3">
+            <Link href={link}>
+              <a className="lg:text-lg text-gray-500 hover:text-gray-700 underline">Lees meer »</a>
+            </Link>
+          </div>
+        </FadeIntoView>
       </div>
+
+      <div className="w-full border-b border-gray-150 dark:border-gray-750 pt-12" />
     </div>
-  )
-}
+  );
+};

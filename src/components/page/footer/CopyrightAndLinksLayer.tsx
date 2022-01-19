@@ -1,11 +1,12 @@
-import { MenuProps } from '../../../types/menu';
 import MenuItems from '../../menu/MenuItems';
+import { AppContext } from '../AppContext';
+import { useContext } from 'react';
 
-interface Props {
-  menu: MenuProps;
-}
+interface Props {}
 
-const CopyrightAndLinksLayer = ({ menu }: Props): JSX.Element => {
+const CopyrightAndLinksLayer = ({}: Props): JSX.Element => {
+  const { footerMenu: menu } = useContext(AppContext);
+
   return (
     <div className="flex flex-col justify-between text-center lg:flex-row">
       <p className="order-last text-sm leading-tight text-gray-400 lg:order-first">
