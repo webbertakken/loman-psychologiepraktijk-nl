@@ -2,9 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* use text colour for stroke */
+.icon,
+.icon:hover,
+.icon:active,
+.icon:focus {
+  stroke: currentColor;
+}
+
 @layer base {
-    body {
-        word-break: break-word;
-        overflow-y: scroll;
-    }
+  body {
+    /* prevent layout breaks */
+    word-break: break-word;
+
+    /* fix layout shift when navigating */
+    overflow-y: scroll;
+  }
 }

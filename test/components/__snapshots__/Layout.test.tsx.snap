@@ -7,25 +7,74 @@ exports[`Layout matches snapshot 1`] = `
   >
     <header
       aria-label="Main navigation bar"
-      class="hidden md:block relative w-full px-8 text-gray-300 body-font z-10 bg-white bg-opacity-80"
+      class="w-full text-gray-300 body-font z-10 bg-white bg-opacity-80"
     >
       <div
-        class="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-7xl"
+        class="w-full h-full md:hidden absolute z-40 transform -translate-x-full"
+      >
+        <div
+          class="bg-gray-800 opacity-50 inset-0 fixed w-full h-full"
+        />
+        <div
+          class="w-64 z-20 absolute left-0 z-40 top-0 bg-white shadow flex-col justify-between transition duration-150 ease-in-out h-full"
+        >
+          <div
+            class="flex flex-col justify-between h-full"
+          >
+            <div
+              class="px-6 pt-4"
+            >
+              <div
+                class="flex justify-between"
+              >
+                <a
+                  aria-label="Logo of Loman psychologiepraktijk"
+                  class="z-10"
+                  href="/"
+                >
+                  <test-file-stub
+                    classname="h-12 md:h-14 select-none cursor-pointer"
+                  />
+                </a>
+                <button
+                  aria-label="close sidebar menu"
+                  class="cursor-pointer md:hidden rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-900 hover:text-gray-800"
+                >
+                  <test-file-stub />
+                </button>
+              </div>
+              <nav
+                class="flex-col py-5 space-y-4 text-base"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container flex flex-row items-center justify-between py-4 px-6 mx-auto max-w-7xl"
       >
         <a
           aria-label="Logo of Loman psychologiepraktijk"
-          class="z-10"
+          class="z-10 md:ml-8"
           href="/"
         >
           <test-file-stub
-            classname="h-14 select-none cursor-pointer"
+            classname="h-12 md:h-14 select-none cursor-pointer"
           />
         </a>
         <nav
           aria-label="Main navigation"
-          class="top-0 left-0 z-0 flex  items-center justify-center h-full py-5 -ml-0 space-x-5 text-base md:-ml-5 md:py-0"
+          class="hidden md:flex pr-8 top-0 left-0 z-0 flex  items-center justify-center h-full py-5 -ml-0 space-x-5 text-base md:-ml-5 md:py-0"
           role="navigation"
         />
+        <button
+          aria-label="open sidebar menu"
+          class="cursor-pointer md:hidden rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-900 hover:text-gray-800"
+        >
+          <test-file-stub
+            classname="icon"
+          />
+        </button>
       </div>
     </header>
     <main />
