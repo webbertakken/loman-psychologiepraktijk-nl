@@ -28,7 +28,7 @@ function MobileMenu({}: Props): JSX.Element {
         <div className="w-64 z-20 absolute left-0 z-40 top-0 bg-white shadow flex-col justify-between transition duration-150 ease-in-out h-full">
           <div className="flex flex-col justify-between h-full">
             <div className="px-6 pt-4">
-              <div className="flex justify-between">
+              <div className="flex justify-between items-center">
                 <Link href="/">
                   <a className="z-10" aria-label="Logo of Loman psychologiepraktijk">
                     <Logo className="h-12 md:h-14 select-none cursor-pointer" />

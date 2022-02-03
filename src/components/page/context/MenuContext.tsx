@@ -1,12 +1,12 @@
 import React from 'react';
 import { MenuProps } from '../../../types/menu';
 
-type ContextProps = {
+interface ContextProps {
   menu: MenuProps;
   show: boolean;
-  setShow: (boolean: boolean) => void;
+  setShow: (show: boolean) => void;
   hasDarkBackground: boolean;
-};
+}
 
 export const MenuContext = React.createContext<Partial<ContextProps>>({
   menu: [],
