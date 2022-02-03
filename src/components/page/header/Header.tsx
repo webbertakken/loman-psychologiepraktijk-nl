@@ -35,9 +35,11 @@ const Header = ({}: Props): JSX.Element => {
       )}
       aria-label="Main navigation bar"
     >
-      <MenuContext.Provider value={{ show, setShow, hasDarkBackground, menu }}>
+      <MenuContext.Provider value={{ type: 'sidebar', show, setShow, hasDarkBackground, menu }}>
         <MobileMenu />
+      </MenuContext.Provider>
 
+      <MenuContext.Provider value={{ type: 'main', show, setShow, hasDarkBackground, menu }}>
         <div className="container flex flex-row items-center justify-between py-4 px-6 mx-auto max-w-7xl">
           <DesktopMenu />
           <MobileMenuToggle />

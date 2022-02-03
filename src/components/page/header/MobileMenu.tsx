@@ -44,6 +44,7 @@ function MobileMenu({}: Props): JSX.Element {
                 menu={menu}
                 className={cx('flex-col py-5 space-y-4 text-base')}
                 itemClassName={'text-gray-900 hover:text-gray-800'}
+                subMenuClassName={'pt-4'}
               />
             </div>
           </div>

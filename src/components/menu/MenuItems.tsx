@@ -8,6 +8,7 @@ interface Props {
   role?: string;
   ariaLabel?: string;
   ariaLabelledBy?: string;
+  subMenuClassName?: string;
 }
 
 const MenuItems = ({
@@ -17,10 +18,17 @@ const MenuItems = ({
   role,
   ariaLabel,
   ariaLabelledBy,
+  subMenuClassName,
 }: Props): JSX.Element => (
   <nav className={className} role={role} aria-label={ariaLabel} aria-labelledby={ariaLabelledBy}>
     {menu?.map(({ path, ...rest }) => (
-      <MenuItem key={path} path={path} className={itemClassName} {...rest} />
+      <MenuItem
+        key={path}
+        path={path}
+        className={itemClassName}
+        {...rest}
+        subMenuClassName={subMenuClassName}
+      />
     ))}
   </nav>
 );
