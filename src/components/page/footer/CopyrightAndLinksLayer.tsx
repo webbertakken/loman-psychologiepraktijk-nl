@@ -1,5 +1,5 @@
 import MenuItems from '../../menu/MenuItems';
-import { AppContext } from '../AppContext';
+import { AppContext } from '../context/AppContext';
 import { useContext } from 'react';
 
 interface Props {}

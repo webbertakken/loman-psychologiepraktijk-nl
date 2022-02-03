@@ -1,11 +1,11 @@
-import Layout from './Layout';
+import Layout from './layout/Layout';
 import LoadingPage from '../loading/LoadingPage';
 import { PageEntry } from '../../types/page';
 import Section from '../section/Section';
 import { MenuProps } from '../../types/menu';
 import { BannerNotificationEntry } from '../../types/banner';
-import { AppContext } from './AppContext';
-import { PageContext } from './PageContext';
+import { AppContext } from './context/AppContext';
+import { PageContext } from './context/PageContext';
 
 interface Props {
   page: PageEntry;

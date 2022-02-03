@@ -1,5 +1,5 @@
 import React from 'react';
-import { PageProps } from '../../types/page';
+import { PageProps } from '../../../types/page';
 
 type ContextProps = Pick<PageProps, 'hasOwnHeader' | 'hasDarkBackground'>;
 

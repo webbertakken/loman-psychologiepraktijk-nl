@@ -1,7 +1,7 @@
-import NavBar from './navbar/NavBar';
-import Banner from './Banner';
-import { BannerNotificationEntry } from '../../types/banner';
-import Footer from './footer/Footer';
+import NavBar from '../header/Header';
+import Banner from '../banner/Banner';
+import { BannerNotificationEntry } from '../../../types/banner';
+import Footer from '../footer/Footer';
 
 interface Props {
   children: JSX.Element;

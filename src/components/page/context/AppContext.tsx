@@ -1,6 +1,6 @@
 import React from 'react';
-import { MenuProps } from '../../types/menu';
-import { BannerNotificationEntry } from '../../types/banner';
+import { MenuProps } from '../../../types/menu';
+import { BannerNotificationEntry } from '../../../types/banner';
 
 type ContextProps = {
   headerMenu: MenuProps;
