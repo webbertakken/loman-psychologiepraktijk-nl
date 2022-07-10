@@ -13,9 +13,9 @@ jobs:
         with:
           lfs: true
       - name: Run Cypress 🌲
-        uses: cypress-io/github-action@v2
-        env:
-          CYPRESS_BASE_URL: ${{ github.event.deployment_status.target_url }}
+        uses: cypress-io/github-action@v4.1.1
+        with:
+          config: baseUrl=${{ github.event.deployment_status.target_url }}
       - name: Upload video 📼
         uses: actions/upload-artifact@v2
         if: always()
