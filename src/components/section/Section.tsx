@@ -9,6 +9,11 @@ interface Props {
   index?: number;
 }
 const Section = ({ section, index }: Props): JSX.Element => {
+  if (!section.sys.contentType) {
+    // Section is still in draft
+    return null;
+  }
+
   const sectionType = section.sys.contentType.sys.id;
 
   switch (sectionType) {
