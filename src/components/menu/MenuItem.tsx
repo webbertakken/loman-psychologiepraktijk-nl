@@ -33,35 +33,32 @@ const MenuItem = ({
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <Link key={path} href={path}>
-        <a
-          key={path}
-          className={cx(
-            `group inline-flex outline-none items-center relative font-thin leading-6 transition duration-150 ease-out`,
-            className,
-            { 'text-gray-500': isOpen },
-          )}
-        >
-          <span className="block pb-1">{title}</span>
-
-          {hasSubpages && type !== 'sidebar' && (
-            <HiChevronDown
-              className={cx('text-gray-400 group-hover:text-gray-500 -mr-2', {
-                'text-gray-600': isOpen,
-              })}
-              aria-hidden="true"
-            />
-          )}
-
-          <span className="absolute bottom-0 left-0 inline-block w-full h-0.5 overflow-hidden">
-            <span
-              className={cx(
-                'absolute inset-0 inline-block w-full h-1/2 transform group-hover:bg-gray-600',
-                { 'bg-gray-500': isActive || isOpen },
-              )}
-            />
-          </span>
-        </a>
+      <Link
+        key={path}
+        href={path}
+        className={cx(
+          `group inline-flex outline-none items-center relative font-thin leading-6 transition duration-150 ease-out`,
+          className,
+          { 'text-gray-500': isOpen },
+        )}
+      >
+        <span className="block pb-1">{title}</span>
+        {hasSubpages && type !== 'sidebar' && (
+          <HiChevronDown
+            className={cx('text-gray-400 group-hover:text-gray-500 -mr-2', {
+              'text-gray-600': isOpen,
+            })}
+            aria-hidden="true"
+          />
+        )}
+        <span className="absolute bottom-0 left-0 inline-block w-full h-0.5 overflow-hidden">
+          <span
+            className={cx(
+              'absolute inset-0 inline-block w-full h-1/2 transform group-hover:bg-gray-600',
+              { 'bg-gray-500': isActive || isOpen },
+            )}
+          />
+        </span>
       </Link>
 
       {hasSubpages && type === 'main' && (
