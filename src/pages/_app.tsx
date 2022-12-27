@@ -1,7 +1,7 @@
 import type { AppProps /*, AppContext */ } from 'next/app';
 import Head from 'next/head';
 import '../styles/globals.css';
-import 'react-tippy/dist/tippy.css';
+import 'tippy.js/dist/tippy.css';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (

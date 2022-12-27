@@ -1592,6 +1592,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@popperjs/core@npm:^2.9.0":
+  version: 2.11.6
+  resolution: "@popperjs/core@npm:2.11.6"
+  checksum: 47fb328cec1924559d759b48235c78574f2d71a8a6c4c03edb6de5d7074078371633b91e39bbf3f901b32aa8af9b9d8f82834856d2f5737a23475036b16817f0
+  languageName: node
+  linkType: hard
+
 "@react-spring/animated@npm:~9.6.1":
   version: 9.6.1
   resolution: "@react-spring/animated@npm:9.6.1"
@@ -1764,6 +1771,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tailwindcss/forms@npm:^0.5.3":
+  version: 0.5.3
+  resolution: "@tailwindcss/forms@npm:0.5.3"
+  dependencies:
+    mini-svg-data-uri: ^1.2.3
+  peerDependencies:
+    tailwindcss: ">=3.0.0 || >= 3.0.0-alpha.1"
+  checksum: 9eddb4dbd06d01b1068138ff52a54ed0e35a28e7bfd3c72e226fc28658ecd92a9c078c4abe9c83db090984672040644d7ae2e035933fb619dd703df1d87aa275
+  languageName: node
+  linkType: hard
+
 "@tailwindcss/typography@npm:^0.5.8":
   version: 0.5.8
   resolution: "@tailwindcss/typography@npm:0.5.8"
@@ -1831,6 +1849,18 @@ __metadata:
   peerDependencies:
     "@testing-library/dom": ">=7.21.4"
   checksum: 852c48ea6db1c9471b18276617c84fec4320771e466cd58339a732ca3fd73ad35e5a43ae14f51af51a8d0a150dcf60fcaab049ef367871207bea8f92c4b8195e
+  languageName: node
+  linkType: hard
+
+"@tippyjs/react@npm:^4.2.6":
+  version: 4.2.6
+  resolution: "@tippyjs/react@npm:4.2.6"
+  dependencies:
+    tippy.js: ^6.3.1
+  peerDependencies:
+    react: ">=16.8"
+    react-dom: ">=16.8"
+  checksum: 8f0fba591c9dae2e1af1ae632bbc775ba5c9dd4498e50e242be70302b4c27115c6740eec44e885e294b27cb28515777b52af5b34aac9d4bab627d948add938ae
   languageName: node
   linkType: hard
 
@@ -7227,6 +7257,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mini-svg-data-uri@npm:^1.2.3":
+  version: 1.4.4
+  resolution: "mini-svg-data-uri@npm:1.4.4"
+  bin:
+    mini-svg-data-uri: cli.js
+  checksum: 997f1fbd8d59a70f03761e18626d335197a3479cb9d1ff75678e4b64b864d32a0b8fc18115eabde035e5299b8b4a354a78e57dd6ac10f9d604162a6170898d09
+  languageName: node
+  linkType: hard
+
 "minimatch@npm:^3.0.4":
   version: 3.0.4
   resolution: "minimatch@npm:3.0.4"
@@ -7993,13 +8032,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"popper.js@npm:^1.11.1":
-  version: 1.16.1
-  resolution: "popper.js@npm:1.16.1"
-  checksum: c56ae5001ec50a77ee297a8061a0221d99d25c7348d2e6bcd3e45a0d0f32a1fd81bca29d46cb0d4bdf13efb77685bd6a0ce93f9eb3c608311a461f945fffedbe
-  languageName: node
-  linkType: hard
-
 "postcss-css-variables@npm:0.17.0":
   version: 0.17.0
   resolution: "postcss-css-variables@npm:0.17.0"
@@ -8429,15 +8461,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-tippy@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "react-tippy@npm:1.4.0"
-  dependencies:
-    popper.js: ^1.11.1
-  checksum: cbe3863ed896601a8dfd8068fb3220e8ffc95b83f63b13c19d1a46fe04e485043f9d2c52f6fcc85d55ab4616ff30e04e1952be8b30f8c70cd75dca68ee6f85ca
-  languageName: node
-  linkType: hard
-
 "react-visibility-sensor@npm:^5.1.1":
   version: 5.1.1
   resolution: "react-visibility-sensor@npm:5.1.1"
@@ -8782,10 +8805,12 @@ resolve@^2.0.0-next.3:
     "@headlessui/react": ^1.7.7
     "@jest/types": ^29.3.1
     "@loadable/component": ^5.15.2
+    "@tailwindcss/forms": ^0.5.3
     "@tailwindcss/typography": ^0.5.8
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
     "@testing-library/user-event": ^14.4.3
+    "@tippyjs/react": ^4.2.6
     "@types/jest": ^29.2.4
     "@types/node": ^18.11.17
     "@types/prop-types": ^15.7.5
@@ -8819,7 +8844,6 @@ resolve@^2.0.0-next.3:
     react-icons: ^4.7.1
     react-spring: 9.6.1
     react-test-renderer: ^18.2.0
-    react-tippy: ^1.4.0
     react-visibility-sensor: ^5.1.1
     tailwindcss: ^3.2.4
     ts-jest: ^29.0.3
@@ -9591,6 +9615,15 @@ resolve@^2.0.0-next.3:
     globalyzer: 0.1.0
     globrex: ^0.1.2
   checksum: aea5801eb6663ddf77ebb74900b8f8bd9dfcfc9b6a1cc8018cb7421590c00bf446109ff45e4b64a98e6c95ddb1255a337a5d488fb6311930e2a95334151ec9c6
+  languageName: node
+  linkType: hard
+
+"tippy.js@npm:^6.3.1":
+  version: 6.3.7
+  resolution: "tippy.js@npm:6.3.7"
+  dependencies:
+    "@popperjs/core": ^2.9.0
+  checksum: cac955318a65288e8d2dca05059878b003c6e66f92c94f7810f5bc5448eb6646abdf7dacc9bd00020e2611592598d0aae3a28ec9a45349a159603c3fdddce5fb
   languageName: node
   linkType: hard
 

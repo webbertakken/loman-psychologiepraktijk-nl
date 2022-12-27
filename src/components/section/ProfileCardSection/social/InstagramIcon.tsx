@@ -1,4 +1,4 @@
-import { Tooltip } from 'react-tippy';
+import Tooltip from '@tippyjs/react';
 
 interface Props {
   handle: string;
@@ -7,7 +7,7 @@ interface Props {
 const InstagramIcon = ({ handle: dirtyHandle }: Props): JSX.Element => {
   const handle = dirtyHandle.replace(/^(@)/, '');
   return (
-    <Tooltip title={`@${handle}`}>
+    <Tooltip content={`@${handle}`}>
       <a
         className="link"
         target="_blank"
