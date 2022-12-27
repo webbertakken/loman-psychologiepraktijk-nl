@@ -6,6 +6,7 @@ import { MenuContext } from '../context/MenuContext';
 import IconButton from '../../icons/IconButton';
 import MenuItems from '../../menu/MenuItems';
 import cx from 'classnames';
+import Image from 'next/image';
 
 interface Props {}
 
@@ -29,14 +30,16 @@ function MobileMenu({}: Props): JSX.Element {
           <div className="flex flex-col justify-between h-full">
             <div className="px-6 pt-4">
               <div className="flex justify-between items-center">
-                <Link href="/">
-                  <a className="z-10" aria-label="Logo of Loman psychologiepraktijk">
-                    <Logo className="h-12 md:h-14 select-none cursor-pointer" />
-                  </a>
+                <Link href="/" className="z-10" aria-label="Logo of Loman psychologiepraktijk">
+                  <Image
+                    alt="Loman Psychologiepraktijk"
+                    src={Logo}
+                    className="h-12 w-auto md:h-14 select-none cursor-pointer"
+                  />
                 </Link>
 
                 <IconButton ariaLabel="close sidebar menu" onClick={() => setShow(!show)}>
-                  <Cross />
+                  <Image src={Cross} alt="close sidebar menu" />
                 </IconButton>
               </div>
 

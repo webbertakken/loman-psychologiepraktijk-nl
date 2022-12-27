@@ -36,10 +36,8 @@ function MenuPopover({
       >
         <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
           <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-            <Link key={headerLink} href={headerLink}>
-              <a className="text-gray-600 hover:text-gray-800">
-                <strong>{headerTitle}</strong>
-              </a>
+            <Link key={headerLink} href={headerLink} className="text-gray-600 hover:text-gray-800">
+              <strong>{headerTitle}</strong>
             </Link>
             {children}
           </div>

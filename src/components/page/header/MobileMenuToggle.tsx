@@ -1,4 +1,5 @@
 import MenuIcon from '../../../assets/hamburger.svg';
+import Image from 'next/image';
 import { MenuContext } from '../context/MenuContext';
 import { useContext } from 'react';
 import IconButton from '../../icons/IconButton';
@@ -17,7 +18,7 @@ function MobileMenuToggle({ className }: Props): JSX.Element {
       onClick={() => setShow(!show)}
       dark={hasDarkBackground}
     >
-      <MenuIcon className="icon" />
+      <Image src={MenuIcon} alt="menu icon" className="icon" />
     </IconButton>
   );
 }

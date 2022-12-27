@@ -30,8 +30,8 @@ const Header = ({}: Props): JSX.Element => {
     <header
       className={cx(
         'w-full text-gray-300 body-font z-10',
-        { 'bg-white bg-opacity-80': !hasDarkBackground },
-        { 'bg-black bg-opacity-50': hasDarkBackground },
+        { 'bg-white/80': !hasDarkBackground },
+        { 'bg-black/50': hasDarkBackground },
       )}
       aria-label="Main navigation bar"
     >

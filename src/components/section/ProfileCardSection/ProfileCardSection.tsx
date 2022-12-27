@@ -75,7 +75,7 @@ const ProfileCardSection = ({ section }: Props): JSX.Element => {
 
             <FadeIntoView delay={100}>
               <h1 className="text-3xl font-bold pt-8 lg:pt-0">{title}</h1>
-              <div className="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25" />
+              <div className="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-emerald-500 opacity-25" />
             </FadeIntoView>
 
             <FadeIntoView delay={200}>

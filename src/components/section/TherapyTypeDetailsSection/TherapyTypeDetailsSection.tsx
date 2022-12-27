@@ -41,9 +41,9 @@ const TherapyTypeDetailsSection = ({ section }: Props): JSX.Element => {
       <div className="max-w-3xl md:p-6 lg:py-12 sm:text-center mx-auto">
         <div className="w-full px-6 md:px-0">
           <FadeIntoView>
-            <p className="prose text-base text-gray-600 lg:text-lg mx-auto">
+            <div className="prose text-base text-gray-600 lg:text-lg mx-auto">
               {documentToReactComponents(content)}
-            </p>
+            </div>
           </FadeIntoView>
         </div>
       </div>
