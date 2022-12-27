@@ -9,7 +9,7 @@ const CopyrightAndLinksLayer = ({}: Props): JSX.Element => {
 
   return (
     <div className="flex flex-col justify-between text-center lg:flex-row p-2 gap-2">
-      <p className="order-last text-sm leading-tight text-gray-400 lg:order-first flex justify-center gap-1 flex-col md:flex-row">
+      <div className="order-last text-sm leading-tight text-gray-400 lg:order-first flex justify-center gap-1 flex-col md:flex-row">
         <div>
           <strong>Loman Psychologiepraktijk</strong>
           <strong className="invisible md:visible"> |</strong>
@@ -17,7 +17,7 @@ const CopyrightAndLinksLayer = ({}: Props): JSX.Element => {
         <div>
           <span>Alle rechten voorbehouden</span>
         </div>
-      </p>
+      </div>
       <MenuItems
         menu={menu}
         ariaLabel="Footer navigation"
