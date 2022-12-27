@@ -57,9 +57,9 @@ export const TherapyTypeCard = ({ card }: Props): JSX.Element => {
         </FadeIntoView>
 
         <FadeIntoView>
-          <p className="prose text-base text-gray-600 lg:text-lg mx-auto">
+          <div className="prose text-base text-gray-600 lg:text-lg mx-auto">
             {documentToReactComponents(summary)}
-          </p>
+          </div>
         </FadeIntoView>
 
         <FadeIntoView delay={400}>
