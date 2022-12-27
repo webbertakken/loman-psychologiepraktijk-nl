@@ -59,7 +59,7 @@ const ProfileCardSection = ({ section }: Props): JSX.Element => {
       <div className="max-w-3xl flex items-center h-auto flex-wrap mx-auto my-12 lg:my-0">
         {photoShouldBeOnTheLeft && <Photo />}
         <div
-          className={cx('w-full lg:w-3/5 shadow-2xl bg-white opacity-75 mx-6 lg:mx-0', {
+          className={cx('w-full lg:w-3/5 shadow-2xl bg-white opacity-75 mx-4 lg:mx-0', {
             'rounded-lg': true,
             'lg:rounded-l-lg': !photoShouldBeOnTheLeft,
             'lg:rounded-r-none': !photoShouldBeOnTheLeft,
