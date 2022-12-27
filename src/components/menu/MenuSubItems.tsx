@@ -18,7 +18,7 @@ function MenuSubItems({ subPages }: Props): JSX.Element {
           >
             <DynamicIcon
               icon={icon}
-              className="flex-shrink-0 h-6 w-6 text-indigo-600"
+              className="shrink-0 h-6 w-6 text-indigo-600"
               aria-hidden="true"
             />
             <div className="ml-4">

@@ -37,12 +37,12 @@ const MenuItem = ({
         key={path}
         href={path}
         className={cx(
-          `group inline-flex outline-none items-center relative font-thin leading-6 transition duration-150 ease-out`,
+          `group inline-flex items-center relative font-thin leading-6 transition duration-150 ease-out`,
           className,
           { 'text-gray-500': isOpen },
         )}
       >
-        <span className="block pb-1">{title}</span>
+        <span className="block p-1">{title}</span>
         {hasSubpages && type !== 'sidebar' && (
           <HiChevronDown
             className={cx('text-gray-400 group-hover:text-gray-500 -mr-2', {

@@ -15,7 +15,7 @@ const LinkedInIcon = ({ handle: dirtyHandle }: Props): JSX.Element => {
         href={`https://www.linkedin.com/in/${handle}`}
       >
         <svg
-          className="h-6 fill-current text-gray-600 hover:text-green-800"
+          className="h-6 fill-current text-gray-600 hover:text-emerald-800"
           role="img"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"

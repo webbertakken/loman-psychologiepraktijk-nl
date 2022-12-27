@@ -6,7 +6,7 @@ const Location = ({ location }: Props): JSX.Element => {
   return (
     <p className="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start">
       <svg
-        className="h-4 fill-current text-green-800 pr-4"
+        className="h-4 fill-current text-emerald-800 pr-4"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
       >

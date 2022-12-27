@@ -6,7 +6,7 @@ const Vocation = ({ vocation }: Props): JSX.Element => {
   return (
     <p className="pt-4 text-base font-bold flex items-center justify-center lg:justify-start">
       <svg
-        className="h-4 fill-current text-green-800 pr-4"
+        className="h-4 fill-current text-emerald-800 pr-4"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
       >
