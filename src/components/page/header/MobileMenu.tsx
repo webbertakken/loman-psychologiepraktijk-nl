@@ -34,7 +34,7 @@ function MobileMenu({}: Props): JSX.Element {
                   <Image
                     alt="Loman Psychologiepraktijk"
                     src={Logo}
-                    className="h-12 md:h-14 select-none cursor-pointer"
+                    className="h-12 w-auto md:h-14 select-none cursor-pointer"
                   />
                 </Link>
 

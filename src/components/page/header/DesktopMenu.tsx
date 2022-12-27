@@ -16,9 +16,8 @@ function DesktopMenu({}: Props): JSX.Element {
       <Link href="/" className="z-10 md:ml-8" aria-label="Logo of Loman psychologiepraktijk">
         <Image
           src={Logo}
-          width={200}
           alt="Loman Psychologiepraktijk"
-          className="h-12 md:h-14 select-none cursor-pointer"
+          className="h-12 w-auto md:h-14 select-none cursor-pointer"
         />
       </Link>
 
