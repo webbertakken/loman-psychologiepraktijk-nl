@@ -40,12 +40,13 @@ const MenuItem = ({
           `group inline-flex items-center relative font-thin leading-6 transition duration-150 ease-out`,
           className,
           { 'text-gray-500': isOpen },
+          { '-mr-1': hasSubpages && type !== 'sidebar' },
         )}
       >
-        <span className="block p-1">{title}</span>
+        <span className="block py-0.5">{title}</span>
         {hasSubpages && type !== 'sidebar' && (
           <HiChevronDown
-            className={cx('text-gray-400 group-hover:text-gray-500 -mr-2', {
+            className={cx('text-gray-400 group-hover:text-gray-500', {
               'text-gray-600': isOpen,
             })}
             aria-hidden="true"
