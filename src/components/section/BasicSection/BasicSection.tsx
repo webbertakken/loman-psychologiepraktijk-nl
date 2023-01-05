@@ -13,7 +13,7 @@ const BasicSection = ({ section, index }: Props): JSX.Element => {
   const backgroundClass = index % 2 === 0 ? 'bg-[#bfc6d6]' : 'bg-white';
 
   return (
-    <section id={slug} className={`w-full px-8 py-16 md:py-24 ${backgroundClass} xl:px-0`}>
+    <section id={slug} className={`w-full px-4 md:px-8 py-16 md:py-24 ${backgroundClass} xl:px-0`}>
       <div className="flex flex-col max-w-4xl mx-auto">
         <FadeIntoView>
           <h2 className="text-4xl font-extrabold sm:text-5xl md:text-6xl mb-12">{title}</h2>

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { MenuContext } from '../context/MenuContext';
 import { useContext } from 'react';
 import IconButton from '../../icons/IconButton';
+import cx from 'classnames';
 
 interface Props {
   className?: string;
@@ -18,7 +19,7 @@ function MobileMenuToggle({ className }: Props): JSX.Element {
       onClick={() => setShow(!show)}
       dark={hasDarkBackground}
     >
-      <Image src={MenuIcon} alt="menu icon" className="icon" />
+      <Image src={MenuIcon} alt="menu icon" className={cx('icon', { invert: hasDarkBackground })} />
     </IconButton>
   );
 }
