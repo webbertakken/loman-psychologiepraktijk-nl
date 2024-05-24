@@ -9,16 +9,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           lfs: true
+
+      - name: Install package manager (from package.json)
+        run: |
+          corepack enable
+          corepack install
+
       - name: Run Cypress 🌲
-        uses: cypress-io/github-action@v4.1.1
+        uses: cypress-io/github-action@v6
         with:
           config: baseUrl=${{ github.event.deployment_status.target_url }}
           cache-key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+
       - name: Upload video 📼
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: Test videos
