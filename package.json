@@ -38,7 +38,8 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-spring": "9.6.1",
-    "react-visibility-sensor": "^5.1.1"
+    "react-visibility-sensor": "^5.1.1",
+    "sharp": "^0.33.5"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
