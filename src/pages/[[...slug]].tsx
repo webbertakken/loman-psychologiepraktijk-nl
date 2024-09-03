@@ -39,7 +39,7 @@ const getBannerNotification = async (): Promise<BannerNotificationEntry> => {
     content_type: 'bannerNotification',
   });
 
-  return banners?.[0];
+  return banners?.[0] || null;
 };
 
 const getActivePath = (slug: null | string | string[]) => {
