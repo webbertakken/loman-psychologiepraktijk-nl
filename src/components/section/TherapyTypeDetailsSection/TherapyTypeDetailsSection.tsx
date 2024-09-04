@@ -1,6 +1,6 @@
 import { TherapyTypeDetailsEntry } from '../../../types/section';
 import FadeIntoView from '../../animations/fade-into-view';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { renderContent } from '../../content/renderContent';
 
 interface Props {
   section: TherapyTypeDetailsEntry;
@@ -42,7 +42,7 @@ const TherapyTypeDetailsSection = ({ section }: Props): JSX.Element => {
         <div className="w-full px-6 md:px-0">
           <FadeIntoView>
             <div className="prose text-base text-gray-600 lg:text-lg mx-auto">
-              {documentToReactComponents(content)}
+              {renderContent(content)}
             </div>
           </FadeIntoView>
         </div>
