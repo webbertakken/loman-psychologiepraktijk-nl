@@ -1,6 +1,6 @@
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BasicSectionEntry } from '../../../types/section';
 import FadeIntoView from '../../animations/fade-into-view';
+import { renderContent } from '../../content/renderContent';
 
 interface Props {
   section: BasicSectionEntry;
@@ -26,7 +26,7 @@ const BasicSection = ({ section, index }: Props): JSX.Element => {
             </div>
 
             <div className="prose w-full mt-5 md:mt-0 md:w-4/5 md:pl-2 text-gray-700 md:text-lg">
-              {documentToReactComponents(content)}
+              {renderContent(content)}
             </div>
           </div>
         </FadeIntoView>

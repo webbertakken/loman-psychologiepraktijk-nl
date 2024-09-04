@@ -1,4 +1,4 @@
-import DynamicIcon from '../icons/DynamicIcon';
+import { DynamicIcon } from '../icons/DynamicIcon';
 import Link from 'next/link';
 import { MenuItemProps, RootMenuItemProps } from '../../types/menu';
 

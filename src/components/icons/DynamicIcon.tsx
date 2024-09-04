@@ -5,7 +5,7 @@ interface Props extends IconContext {
   icon: string;
 }
 
-const DynamicIcon: React.FC<Props> = ({ icon, ...iconContext }) => {
+export function DynamicIcon({ icon, ...iconContext }: Props) {
   const library = icon?.match(/[A-Z][a-z]+/g)[0].toLowerCase();
   const fallback = <div>•</div>;
 
@@ -23,6 +23,4 @@ const DynamicIcon: React.FC<Props> = ({ icon, ...iconContext }) => {
       <Icon />
     </IconContext.Provider>
   );
-};
-
-export default DynamicIcon;
+}

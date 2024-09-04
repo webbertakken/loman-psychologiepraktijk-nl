@@ -8593,12 +8593,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-icons@npm:^4.7.1":
-  version: 4.7.1
-  resolution: "react-icons@npm:4.7.1"
+"react-icons@npm:^4.12.0":
+  version: 4.12.0
+  resolution: "react-icons@npm:4.12.0"
   peerDependencies:
     react: "*"
-  checksum: 10/c838bed471a1a1f15bb5f6930c43f7bce3ac70d804e36dd440f1b2e7834ebfda60b52ab306cb3830a0a53cb42d77630a9803db89b5fe662f3f7fb5c6556e5070
+  checksum: 10/5cc20509ca0b182f1e7bf42c271846c48f688c8922e2439f48728805adc93ba18476a13588cbe91ee43a2d03b2787e0dc0b5cc4b9c4e4ae3426f4464b3c1b734
   languageName: node
   linkType: hard
 
@@ -9045,7 +9045,7 @@ __metadata:
     prop-types: "npm:^15.8.1"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
-    react-icons: "npm:^4.7.1"
+    react-icons: "npm:^4.12.0"
     react-spring: "npm:9.6.1"
     react-test-renderer: "npm:^18.2.0"
     react-visibility-sensor: "npm:^5.1.1"

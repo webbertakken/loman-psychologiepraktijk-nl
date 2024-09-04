@@ -1,8 +1,8 @@
 import { TherapyTypeCardEntry } from '../../../types/section';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import FadeIntoView from '../../animations/fade-into-view';
 import Link from 'next/link';
 import { useMemo } from 'react';
+import { renderContent } from '../../content/renderContent';
 
 interface Props {
   card: TherapyTypeCardEntry;
@@ -58,7 +58,7 @@ export const TherapyTypeCard = ({ card }: Props): JSX.Element => {
 
         <FadeIntoView>
           <div className="prose text-base text-gray-600 lg:text-lg mx-auto">
-            {documentToReactComponents(summary)}
+            {renderContent(summary)}
           </div>
         </FadeIntoView>
 
