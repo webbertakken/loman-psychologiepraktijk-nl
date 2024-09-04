@@ -3,6 +3,7 @@ import { Document } from '@contentful/rich-text-types';
 import { DynamicIcon } from '../icons/DynamicIcon';
 import { fileTypeIcon } from './fileTypeIcon';
 import { humanFileSize } from '../../core/humanFileSize';
+import Image from 'next/image';
 
 const options: Options = {
   renderNode: {
@@ -17,7 +18,7 @@ const options: Options = {
       const isImage = contentType.startsWith('image/');
 
       return isImage ? (
-        <img src={url} alt={title || description || fileName} />
+        <Image src={url} alt={title || description || fileName} />
       ) : (
         <a
           className="w-40 inline-flex flex-col gap-2 p-2 pb-8 overflow-hidden items-center no-underline hover:underline"
