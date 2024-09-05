@@ -22,7 +22,7 @@ const BasicSection = ({ section, index }: Props): JSX.Element => {
         <FadeIntoView>
           <div className="flex flex-col max-w-6xl mx-auto md:flex-row">
             <div className="w-full pr-5 md:w-3/12 xl:pr-12">
-              <h3 className="text-2xl font-bold">{subtitle}</h3>
+              {subtitle && <h3 className="text-2xl font-bold">{subtitle}</h3>}
             </div>
 
             <div className="prose w-full mt-5 md:mt-0 md:w-4/5 md:pl-2 text-gray-700 md:text-lg">
