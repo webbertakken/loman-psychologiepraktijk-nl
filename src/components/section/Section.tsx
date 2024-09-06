@@ -3,6 +3,7 @@ import { Entry } from 'contentful';
 import TherapyTypesSection from './TherapyTypesSection/TherapyTypesSection';
 import BasicSection from './BasicSection/BasicSection';
 import TherapyTypeDetailsSection from './TherapyTypeDetailsSection/TherapyTypeDetailsSection';
+import OfficeHoursSection from './OfficeHoursSection/OfficeHoursSection';
 
 interface Props {
   section: Entry<any>;
@@ -25,6 +26,8 @@ const Section = ({ section, index }: Props): JSX.Element => {
       return <TherapyTypesSection section={section} />;
     case 'TherapyTypeDetailedSection':
       return <TherapyTypeDetailsSection section={section} />;
+    case 'officeHoursSection':
+      return <OfficeHoursSection section={section} index={index} />;
     default:
       return null;
   }
