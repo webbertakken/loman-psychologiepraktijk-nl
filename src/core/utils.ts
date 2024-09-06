@@ -3,6 +3,13 @@ export const clone = (original) => Object.assign({}, original);
 export const cloneDeep = (original) => JSON.parse(JSON.stringify(original));
 
 /**
+ * Use for date-ranges and time-ranges
+ */
+export function enforceEnDash(text: string): string {
+  return text.replace(/[\-\u2010\u2011\u2012\u2013\u2014\u2015]/g, '–');
+}
+
+/**
  * Removes path from an object recursively.
  * A full path to the key is not required.
  * The original object is not modified.

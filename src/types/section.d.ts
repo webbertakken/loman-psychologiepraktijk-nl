@@ -11,6 +11,21 @@ interface BasicSectionProps {
 
 type BasicSectionEntry = Entry<BasicSectionProps>;
 
+interface OfficeHoursProps {
+  title: string;
+  slug: string;
+  monday: string;
+  tuesday: string;
+  wednesday: string;
+  thursday: string;
+  friday: string;
+  saturday: string;
+  sunday: string;
+  exceptions: string[];
+}
+
+type OfficeHoursEntry = Entry<OfficeHoursProps>;
+
 interface ProfileSectionProps {
   title: string;
   slug: string;
